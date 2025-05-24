@@ -45,6 +45,12 @@ h1 {
 .edge line {
     stroke: #7f8c8d;
     stroke-width: 1.5px;
+    marker-end: url(#arrowhead); /* Reference the marker */
+}
+
+/* Style for the arrowhead marker */
+#arrowhead path {
+    fill: #7f8c8d;
 }
 
 /* Basic hover effect for nodes */
