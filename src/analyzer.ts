@@ -1,5 +1,6 @@
 import { readdir, stat } from 'node:fs/promises';
-import { resolve, join, dirname } from 'node:path';
+import { resolve, join, dirname, isAbsolute } from 'node:path';
+import * as ts from 'typescript';
 
 const excludedDirs = new Set(['node_modules', '.git', 'dist', 'build']); // Define excluded directories
 
@@ -35,22 +36,49 @@ export async function findSourceFiles(dirPath: string): Promise<string[]> {
  * @returns A promise that resolves to a Set of unique imported module specifiers.
  */
 export async function parseImports(filePath: string, fileContent: string): Promise<Set<string>> {
-  const imports = new Set<string>();
-  // Regex for static imports: import ... from 'module-path';
-  const importRegex = /import\s+.*?\s*from\s*['"]([^'"]+)['"];/g;
-  // Regex for static exports: export ... from 'module-path';
-  const exportRegex = /export\s+.*?\s*from\s*['"]([^'"]+)['"];/g;
-
-  let match;
-  while ((match = importRegex.exec(fileContent)) !== null) {
-    imports.add(match[1]);
+  try {
+    const { imports } = new Bun.Transpiler().scanImports(fileContent);
+    // Filter out 'require' and other kinds if necessary, scanImports returns various kinds
+    // For ESM, 'import' and 'export' are primary. 'dynamic' for dynamic imports.
+    return new Set(imports.filter(imp => imp.kind === 'import-statement' || imp.kind === 'export-from').map(imp => imp.path));
+  } catch (e) {
+    console.warn(`[Analyzer] Error scanning imports for ${filePath} using Bun.Transpiler:`, e);
+    // Fallback or re-throw as appropriate. For now, returning empty set.
+    return new Set();
   }
-  while ((match = exportRegex.exec(fileContent)) !== null) {
-    imports.add(match[1]);
-  }
-
-  return imports;
 }
+
+function loadCompilerOptions(projectRootDir: string): ts.CompilerOptions {
+  const defaultConfig: ts.CompilerOptions = {
+    allowJs: true,
+    esModuleInterop: true,
+    moduleResolution: ts.ModuleResolutionKind.NodeNext, // Or Node16 / Bundler
+    // target: ts.ScriptTarget.ESNext, // Specify target if needed for resolution
+    // jsx: ts.JsxEmit.React, // Specify JSX mode if relevant
+  };
+
+  const tsconfigPath = ts.findConfigFile(projectRootDir, ts.sys.fileExists, "tsconfig.json");
+
+  if (tsconfigPath) {
+    const configFile = ts.readConfigFile(tsconfigPath, ts.sys.readFile);
+    if (configFile.error) {
+      console.warn(`[Analyzer] Error reading tsconfig.json at ${tsconfigPath}: ${configFile.error.messageText}`);
+      return defaultConfig;
+    }
+    const parsedCmd = ts.parseJsonConfigFileContent(configFile.config, ts.sys, projectRootDir);
+    if (parsedCmd.errors.length > 0) {
+      parsedCmd.errors.forEach(err => console.warn(`[Analyzer] Error parsing tsconfig.json: ${err.messageText}`));
+      // Return defaultConfig or partially parsed options? For safety, return default.
+      return defaultConfig;
+    }
+    console.info(`[Analyzer] Loaded compiler options from: ${tsconfigPath}`);
+    return { ...defaultConfig, ...parsedCmd.options }; // Spread default to ensure critical defaults aren't missed
+  } else {
+    console.info("[Analyzer] No tsconfig.json found. Using default compiler options.");
+    return defaultConfig;
+  }
+}
+
 
 /**
  * Analyzes a directory to find all source files and their direct dependencies.
@@ -61,80 +89,64 @@ export async function parseImports(filePath: string, fileContent: string): Promi
 export async function analyzeDirectory(rootDir: string): Promise<Map<string, Set<string>>> {
   const dependencyMap = new Map<string, Set<string>>();
   const sourceFilesArray = await findSourceFiles(rootDir);
-  const projectSourceFilesSet = new Set(sourceFilesArray); // For efficient lookup
+  const projectSourceFilesSet = new Set(sourceFilesArray);
 
-  for (const filePath of sourceFilesArray) { // Iterate using the array to maintain order if needed, though Set for lookup
+  const compilerOptions = loadCompilerOptions(rootDir);
+
+  const compilerHost: ts.CompilerHost = {
+    fileExists: ts.sys.fileExists,
+    readFile: ts.sys.readFile,
+    directoryExists: ts.sys.directoryExists,
+    getDirectories: ts.sys.getDirectories,
+    getCurrentDirectory: () => rootDir,
+    getCanonicalFileName: fileName => ts.sys.useCaseSensitiveFileNames ? fileName : fileName.toLowerCase(),
+    getNewLine: () => ts.sys.newLine,
+    useCaseSensitiveFileNames: () => ts.sys.useCaseSensitiveFileNames,
+    getDefaultLibFileName: ts.getDefaultLibFileName,
+    // realpath: ts.sys.realpath, // Optional
+  };
+
+  for (const currentFile of sourceFilesArray) {
     try {
-      const fileContent = await Bun.file(filePath).text();
-      const rawImports = await parseImports(filePath, fileContent);
-      const resolvedInternalImports = new Set<string>(); // Renamed for clarity
+      const fileContent = await Bun.file(currentFile).text();
+      const rawImports = await parseImports(currentFile, fileContent);
+      const resolvedInternalImports = new Set<string>();
 
       for (const importSpecifier of rawImports) {
-        if (importSpecifier.startsWith('./') || importSpecifier.startsWith('../')) {
-          // Resolve relative path
-          const initiallyResolvedPath = resolve(dirname(filePath), importSpecifier);
+        const result = ts.resolveModuleName(
+          importSpecifier,
+          currentFile,
+          compilerOptions,
+          compilerHost
+        );
+
+        if (result.resolvedModule) {
+          let resolvedPath = result.resolvedModule.resolvedFileName;
+          // Ensure resolvedPath is absolute (it should be from ts.resolveModuleName)
+          if (!isAbsolute(resolvedPath)) {
+            resolvedPath = resolve(rootDir, resolvedPath); // Or based on how ts.resolveModuleName forms paths
+          }
           
-          let successfullyResolvedPath: string | null = null;
-
-          // Attempt to find the file, checking extensions and index files
-          try {
-            await stat(initiallyResolvedPath); // Check if path as-is exists
-            successfullyResolvedPath = initiallyResolvedPath;
-          } catch {
-            let found = false;
-            // Try common extensions
-            for (const ext of ['.ts', '.js', '.tsx', '.jsx']) {
-              try {
-                const pathWithExt = initiallyResolvedPath + ext;
-                await stat(pathWithExt);
-                successfullyResolvedPath = pathWithExt;
-                found = true;
-                break;
-              } catch { /* try next extension */ }
+          // Filter out node_modules and non-project files
+          if (!resolvedPath.includes('/node_modules/') && !resolvedPath.includes('/node_modules\\')) { // Check for both path separators
+            if (projectSourceFilesSet.has(resolvedPath)) {
+              resolvedInternalImports.add(resolvedPath);
+            } else {
+              // Optional: Log if a resolved path is not in node_modules but also not in project sources
+              // This could indicate a .d.ts file, a resource file, or a misconfiguration.
+              // console.warn(`[Analyzer] Resolved '${importSpecifier}' from '${currentFile}' to '${resolvedPath}', but it's not a tracked project source file. Skipping.`);
             }
-            if (!found) {
-              // Try index files in a directory
-               for (const ext of ['/index.ts', '/index.js', '/index.tsx', '/index.jsx']) {
-                 try {
-                    const pathWithIndex = initiallyResolvedPath + ext;
-                    await stat(pathWithIndex);
-                    successfullyResolvedPath = pathWithIndex;
-                    found = true;
-                    break;
-                 } catch { /* try next index extension */ }
-               }
-            }
-          }
-
-          // If resolved and it's a project file, add it
-          if (successfullyResolvedPath && projectSourceFilesSet.has(successfullyResolvedPath)) {
-            resolvedInternalImports.add(successfullyResolvedPath);
-          } else if (successfullyResolvedPath) {
-            // It resolved to a file, but that file is not in our projectSourceFilesSet
-            // (e.g. a .d.ts file, or some other file not picked by findSourceFiles).
-            // For now, we ignore these as per the requirement to only map project-internal files.
-            // console.warn(`[Analyzer] Resolved import "${importSpecifier}" to "${successfullyResolvedPath}" but it's not a tracked project source file. Ignoring.`);
           } else {
-            // Did not resolve to any existing file with known extensions.
-            console.warn(`[Analyzer] Could not resolve relative import "${importSpecifier}" from "${filePath}" to an existing project file.`);
+            // console.log(`[Analyzer] Ignoring resolved import for '${importSpecifier}' from '${currentFile}' to node_modules: ${resolvedPath}`);
           }
-
         } else {
-          // Non-relative path (e.g., 'fs', 'react'). These are external.
-          // As per requirements, these should be omitted from the Set<string> of resolved imports.
-          // So, we do nothing here for external modules.
+          console.warn(`[Analyzer] Could not resolve import '${importSpecifier}' from '${currentFile}' using TypeScript resolver.`);
         }
       }
-      // Only add to map if there are internal dependencies, or to represent all scanned files
-      // The requirement is for the Set<string> to only contain absolute paths to *other existing files within the project*.
-      // So, if resolvedInternalImports is empty, it's correct.
-      dependencyMap.set(filePath, resolvedInternalImports);
-
+      dependencyMap.set(currentFile, resolvedInternalImports);
     } catch (error) {
-      console.warn(`[Analyzer] Error processing file "${filePath}":`, error);
-      // Skip this file and continue with others
+      console.warn(`[Analyzer] Error processing file "${currentFile}":`, error);
     }
   }
-
   return dependencyMap;
 }
