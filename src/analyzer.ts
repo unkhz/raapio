@@ -60,61 +60,76 @@ export async function parseImports(filePath: string, fileContent: string): Promi
  */
 export async function analyzeDirectory(rootDir: string): Promise<Map<string, Set<string>>> {
   const dependencyMap = new Map<string, Set<string>>();
-  const sourceFiles = await findSourceFiles(rootDir);
+  const sourceFilesArray = await findSourceFiles(rootDir);
+  const projectSourceFilesSet = new Set(sourceFilesArray); // For efficient lookup
 
-  for (const filePath of sourceFiles) {
+  for (const filePath of sourceFilesArray) { // Iterate using the array to maintain order if needed, though Set for lookup
     try {
       const fileContent = await Bun.file(filePath).text();
       const rawImports = await parseImports(filePath, fileContent);
-      const resolvedImports = new Set<string>();
+      const resolvedInternalImports = new Set<string>(); // Renamed for clarity
 
       for (const importSpecifier of rawImports) {
         if (importSpecifier.startsWith('./') || importSpecifier.startsWith('../')) {
           // Resolve relative path
-          const resolvedPath = resolve(dirname(filePath), importSpecifier);
-          // Attempt to add common extensions if not present
-          // This is a simplified resolution logic. A real resolver would be more complex.
+          const initiallyResolvedPath = resolve(dirname(filePath), importSpecifier);
+          
+          let successfullyResolvedPath: string | null = null;
+
+          // Attempt to find the file, checking extensions and index files
           try {
-            await stat(resolvedPath); // Check if path as-is exists
-            resolvedImports.add(resolvedPath);
+            await stat(initiallyResolvedPath); // Check if path as-is exists
+            successfullyResolvedPath = initiallyResolvedPath;
           } catch {
             let found = false;
+            // Try common extensions
             for (const ext of ['.ts', '.js', '.tsx', '.jsx']) {
               try {
-                const pathWithExt = resolvedPath + ext;
+                const pathWithExt = initiallyResolvedPath + ext;
                 await stat(pathWithExt);
-                resolvedImports.add(pathWithExt);
+                successfullyResolvedPath = pathWithExt;
                 found = true;
                 break;
-              } catch {
-                // try next extension
-              }
+              } catch { /* try next extension */ }
             }
             if (!found) {
-              // If no extension worked, try resolving to an index file in a directory
+              // Try index files in a directory
                for (const ext of ['/index.ts', '/index.js', '/index.tsx', '/index.jsx']) {
                  try {
-                    const pathWithIndex = resolvedPath + ext;
+                    const pathWithIndex = initiallyResolvedPath + ext;
                     await stat(pathWithIndex);
-                    resolvedImports.add(pathWithIndex);
+                    successfullyResolvedPath = pathWithIndex;
                     found = true;
                     break;
-                 } catch {
-                    // try next index extension
-                 }
+                 } catch { /* try next index extension */ }
                }
             }
-            if (!found) {
-               console.warn(`[Analyzer] Could not resolve relative import "${importSpecifier}" from "${filePath}" to an existing file. Keeping original.`);
-               resolvedImports.add(importSpecifier); // Keep original if no resolution worked
-            }
           }
+
+          // If resolved and it's a project file, add it
+          if (successfullyResolvedPath && projectSourceFilesSet.has(successfullyResolvedPath)) {
+            resolvedInternalImports.add(successfullyResolvedPath);
+          } else if (successfullyResolvedPath) {
+            // It resolved to a file, but that file is not in our projectSourceFilesSet
+            // (e.g. a .d.ts file, or some other file not picked by findSourceFiles).
+            // For now, we ignore these as per the requirement to only map project-internal files.
+            // console.warn(`[Analyzer] Resolved import "${importSpecifier}" to "${successfullyResolvedPath}" but it's not a tracked project source file. Ignoring.`);
+          } else {
+            // Did not resolve to any existing file with known extensions.
+            console.warn(`[Analyzer] Could not resolve relative import "${importSpecifier}" from "${filePath}" to an existing project file.`);
+          }
+
         } else {
-          // Non-relative path (e.g., 'fs', 'react'), keep as-is
-          resolvedImports.add(importSpecifier);
+          // Non-relative path (e.g., 'fs', 'react'). These are external.
+          // As per requirements, these should be omitted from the Set<string> of resolved imports.
+          // So, we do nothing here for external modules.
         }
       }
-      dependencyMap.set(filePath, resolvedImports);
+      // Only add to map if there are internal dependencies, or to represent all scanned files
+      // The requirement is for the Set<string> to only contain absolute paths to *other existing files within the project*.
+      // So, if resolvedInternalImports is empty, it's correct.
+      dependencyMap.set(filePath, resolvedInternalImports);
+
     } catch (error) {
       console.warn(`[Analyzer] Error processing file "${filePath}":`, error);
       // Skip this file and continue with others
