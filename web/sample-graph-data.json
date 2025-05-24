@@ -1,0 +1,12 @@
+{
+    "nodes": [
+        { "id": "/abs/path/to/moduleA.ts", "label": "moduleA.ts", "path": "/abs/path/to/moduleA.ts" },
+        { "id": "/abs/path/to/moduleB.ts", "label": "moduleB.ts", "path": "/abs/path/to/moduleB.ts" },
+        { "id": "/abs/path/to/lib/moduleC.ts", "label": "lib/moduleC.ts", "path": "/abs/path/to/lib/moduleC.ts" }
+    ],
+    "edges": [
+        { "source": "/abs/path/to/moduleA.ts", "target": "/abs/path/to/moduleB.ts", "id": "a->b" },
+        { "source": "/abs/path/to/moduleA.ts", "target": "/abs/path/to/lib/moduleC.ts", "id": "a->c" },
+        { "source": "/abs/path/to/moduleB.ts", "target": "/abs/path/to/lib/moduleC.ts", "id": "b->c" }
+    ]
+}

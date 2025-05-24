@@ -1,0 +1,53 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+h1 {
+    text-align: center;
+    padding: 1em;
+    background-color: #333;
+    color: #fff;
+    margin-top: 0;
+}
+
+#graph-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1em;
+    overflow: auto; /* For basic panning if SVG is larger */
+}
+
+#graph-svg {
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+.node rect {
+    fill: #skyblue;
+    stroke: #3498db;
+    stroke-width: 2px;
+    rx: 5; /* Rounded corners */
+    ry: 5;
+}
+
+.node text {
+    font-size: 10px;
+    text-anchor: middle; /* Center text horizontally */
+    dominant-baseline: middle; /* Center text vertically */
+    fill: #2c3e50;
+    pointer-events: none; /* Text doesn't block mouse events on the rect */
+}
+
+.edge line {
+    stroke: #7f8c8d;
+    stroke-width: 1.5px;
+}
+
+/* Basic hover effect for nodes */
+.node:hover rect {
+    fill: #aed6f1;
+}

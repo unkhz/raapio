@@ -1,0 +1,15 @@
+{
+  "name": "raapio",
+  "version": "0.1.0",
+  "description": "A tool to visualize JS/TS ESM module import graphs.",
+  "scripts": {
+    "dev": "bun run src/cli.ts",
+    "build": "bun build src/cli.ts --outdir dist --target bun",
+    "test": "bun test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "bun-types": "latest"
+  },
+  "type": "module"
+}
