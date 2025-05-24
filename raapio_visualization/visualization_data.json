@@ -1,0 +1,385 @@
+{
+  "nodes": [
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/listener-mock.ts",
+      "label": "packages/gatherer-stdin/listener-mock.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/listener-mock.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/transform.test.ts",
+      "label": "packages/gatherer-stdin/lib/transform.test.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/transform.test.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.ts",
+      "label": "packages/gatherer-stdin/lib/args.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/transform.ts",
+      "label": "packages/gatherer-stdin/lib/transform.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/transform.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/listener-read.ts",
+      "label": "packages/gatherer-stdin/lib/listener-read.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/listener-read.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.test.ts",
+      "label": "packages/gatherer-stdin/lib/args.test.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.test.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/queue-write.ts",
+      "label": "packages/gatherer-stdin/lib/queue-write.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/queue-write.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/env.ts",
+      "label": "packages/gatherer-stdin/lib/env.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/env.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/index.ts",
+      "label": "packages/gatherer-stdin/index.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/index.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/env.test.ts",
+      "label": "packages/common-archive-client/lib/env.test.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/env.test.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.ts",
+      "label": "packages/common-archive-client/lib/client.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/env.ts",
+      "label": "packages/common-archive-client/lib/env.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/env.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.test.ts",
+      "label": "packages/common-archive-client/lib/client.test.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.test.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/index.ts",
+      "label": "packages/common-archive-client/index.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/index.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/vitest.config.ts",
+      "label": "packages/common-archive-client/vitest.config.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/vitest.config.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/ruuvi.ts",
+      "label": "packages/common-data/lib/formats/ruuvi.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/ruuvi.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/ruuvi.test.ts",
+      "label": "packages/common-data/lib/formats/ruuvi.test.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/ruuvi.test.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/index.ts",
+      "label": "packages/common-data/lib/formats/index.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/index.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/schemas.ts",
+      "label": "packages/common-data/lib/schemas.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/schemas.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/index.ts",
+      "label": "packages/common-data/index.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/index.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/vitest.config.ts",
+      "label": "packages/common-data/vitest.config.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/vitest.config.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/env.test.ts",
+      "label": "packages/archive/lib/env.test.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/env.test.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/router.ts",
+      "label": "packages/archive/lib/router.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/router.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/context.ts",
+      "label": "packages/archive/lib/context.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/context.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/env.ts",
+      "label": "packages/archive/lib/env.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/env.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/index.ts",
+      "label": "packages/archive/index.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/index.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/vitest.config.ts",
+      "label": "packages/archive/vitest.config.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/vitest.config.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/queue-read.ts",
+      "label": "packages/publisher/lib/queue-read.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/queue-read.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/args.ts",
+      "label": "packages/publisher/lib/args.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/args.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/args.test.ts",
+      "label": "packages/publisher/lib/args.test.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/args.test.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/env.ts",
+      "label": "packages/publisher/lib/env.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/env.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/archive-write.ts",
+      "label": "packages/publisher/lib/archive-write.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/archive-write.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/index.ts",
+      "label": "packages/publisher/index.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/index.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/vitest.config.ts",
+      "label": "packages/publisher/vitest.config.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/vitest.config.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/002-update-config.ts",
+      "label": "packages/common-postgres/migrations/002-update-config.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/002-update-config.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/010-drop-materialized-views.ts",
+      "label": "packages/common-postgres/migrations/010-drop-materialized-views.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/010-drop-materialized-views.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/007-refresh-materialized-views.ts",
+      "label": "packages/common-postgres/migrations/007-refresh-materialized-views.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/007-refresh-materialized-views.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/005-refactor-measurement.ts",
+      "label": "packages/common-postgres/migrations/005-refactor-measurement.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/005-refactor-measurement.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/006-downsample-measurement.ts",
+      "label": "packages/common-postgres/migrations/006-downsample-measurement.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/006-downsample-measurement.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/004-add-ruuvi-health-table.ts",
+      "label": "packages/common-postgres/migrations/004-add-ruuvi-health-table.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/004-add-ruuvi-health-table.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/003-add-source-view.ts",
+      "label": "packages/common-postgres/migrations/003-add-source-view.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/003-add-source-view.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/011-use-real-aggregate-tables.ts",
+      "label": "packages/common-postgres/migrations/011-use-real-aggregate-tables.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/011-use-real-aggregate-tables.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/000-use-timescaledb.ts",
+      "label": "packages/common-postgres/migrations/000-use-timescaledb.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/000-use-timescaledb.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/001-init.ts",
+      "label": "packages/common-postgres/migrations/001-init.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/001-init.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/manual-migrate.ts",
+      "label": "packages/common-postgres/manual-migrate.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/manual-migrate.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/migrate.ts",
+      "label": "packages/common-postgres/lib/migrate.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/migrate.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/env.test.ts",
+      "label": "packages/common-postgres/lib/env.test.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/env.test.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/database.ts",
+      "label": "packages/common-postgres/lib/database.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/database.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.ts",
+      "label": "packages/common-postgres/lib/client.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/env.ts",
+      "label": "packages/common-postgres/lib/env.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/env.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.test.ts",
+      "label": "packages/common-postgres/lib/client.test.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.test.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/index.ts",
+      "label": "packages/common-postgres/index.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/index.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/vitest.config.ts",
+      "label": "packages/common-postgres/vitest.config.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/vitest.config.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/args.ts",
+      "label": "packages/gatherer-http/lib/args.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/args.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/transform.ts",
+      "label": "packages/gatherer-http/lib/transform.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/transform.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/args.test.ts",
+      "label": "packages/gatherer-http/lib/args.test.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/args.test.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/queue-write.ts",
+      "label": "packages/gatherer-http/lib/queue-write.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/queue-write.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/env.ts",
+      "label": "packages/gatherer-http/lib/env.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/env.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/index.ts",
+      "label": "packages/gatherer-http/index.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/index.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/entry.server.tsx",
+      "label": "packages/configurator/app/entry.server.tsx",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/entry.server.tsx"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/schema.ts",
+      "label": "packages/configurator/app/utils/schema.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/schema.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/date.ts",
+      "label": "packages/configurator/app/utils/date.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/date.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/db.server.ts",
+      "label": "packages/configurator/app/utils/db.server.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/db.server.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/root.test.tsx",
+      "label": "packages/configurator/app/root.test.tsx",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/root.test.tsx"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/entry.client.tsx",
+      "label": "packages/configurator/app/entry.client.tsx",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/entry.client.tsx"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/root.tsx",
+      "label": "packages/configurator/app/root.tsx",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/root.tsx"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/health.tsx",
+      "label": "packages/configurator/app/routes/health.tsx",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/health.tsx"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.$tenantId.tsx",
+      "label": "packages/configurator/app/routes/tenant.$tenantId.tsx",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.$tenantId.tsx"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.$tenantId.test.tsx",
+      "label": "packages/configurator/app/routes/tenant.$tenantId.test.tsx",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.$tenantId.test.tsx"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.index.tsx",
+      "label": "packages/configurator/app/routes/tenant.index.tsx",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.index.tsx"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/_index.tsx",
+      "label": "packages/configurator/app/routes/_index.tsx",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/_index.tsx"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/eslint.config.ts",
+      "label": "packages/configurator/eslint.config.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/eslint.config.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/remix.env.d.ts",
+      "label": "packages/configurator/remix.env.d.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/remix.env.d.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/vite.config.ts",
+      "label": "packages/configurator/vite.config.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/vite.config.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/vitest.config.ts",
+      "label": "packages/configurator/vitest.config.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/vitest.config.ts"
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/vitest.setup.ts",
+      "label": "packages/configurator/vitest.setup.ts",
+      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/vitest.setup.ts"
+    }
+  ],
+  "edges": []
+}

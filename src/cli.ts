@@ -91,7 +91,7 @@ async function main() {
       logSuccess(`Graph data successfully saved to: ${outputFilePath}`);
 
     } catch (error) {
-      logError(`An error occurred during the an lysis process: ${error instanceof Error ? error.message : String(error)}`);
+      logError(`An error occurred during the analysis process: ${error instanceof Error ? error.message : String(error)}`);
       process.exit(1);
     }
   } else if (command === 'visualize') {
@@ -186,6 +186,11 @@ async function main() {
           Bun.serve({
             port: port,
             hostname: 'localhost',
+            websocket: { // Add required websocket handler properties
+              message: () => {}, // Required but not used
+              open: () => {},
+              close: () => {},
+            },
             fetch(req) {
               const url = new URL(req.url);
               let filePath = join(absoluteOutputDir, url.pathname);

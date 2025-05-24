@@ -39,7 +39,15 @@ export async function saveGraph(filePath: string, data: GraphData): Promise<void
 export async function loadGraph(filePath: string): Promise<GraphData | null> {
   try {
     const fileContent = await Bun.file(filePath).text();
-    const data = JSON.parse(fileContent) as GraphData;
+    let data: GraphData;
+    
+    try {
+      data = JSON.parse(fileContent) as GraphData;
+    } catch (parseError) {
+      console.error(`[Serializer] Error parsing graph data from "${filePath}":`, parseError);
+      return null;
+    }
+    
     // Basic validation (can be more thorough)
     if (data && typeof data.version === 'string' && typeof data.rootDir === 'string' && typeof data.graph === 'object' && typeof data.timestamps === 'object') {
       console.info(`[Serializer] Graph data loaded from "${filePath}"`);
