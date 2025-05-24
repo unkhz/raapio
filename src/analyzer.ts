@@ -1,6 +1,8 @@
 import { readdir, stat } from 'node:fs/promises';
 import { resolve, join, dirname } from 'node:path';
 
+const excludedDirs = new Set(['node_modules', '.git', 'dist', 'build']); // Define excluded directories
+
 /**
  * Recursively finds all source files (ts, js, tsx, jsx) in a directory.
  * @param dirPath The absolute path to the directory to search.
@@ -12,14 +14,18 @@ export async function findSourceFiles(dirPath: string): Promise<string[]> {
     entries.map(async (entry) => {
       const fullPath = resolve(dirPath, entry.name);
       if (entry.isDirectory()) {
-        return findSourceFiles(fullPath);
+        // Check if the directory name is in the excluded set
+        if (excludedDirs.has(entry.name)) {
+          return []; // Skip this directory by returning an empty array
+        }
+        return findSourceFiles(fullPath); // Recursive call for non-excluded directories
       } else if (entry.isFile() && /\.(ts|js|tsx|jsx)$/.test(entry.name)) {
         return fullPath;
       }
-      return [];
+      return []; // Return empty array for non-matching files or other types
     })
   );
-  return Array.prototype.concat(...files);
+  return Array.prototype.concat(...files); // Flatten the array of arrays
 }
 
 /**
