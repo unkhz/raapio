@@ -1,33 +1,78 @@
-import { readdir, stat } from 'node:fs/promises';
-import { resolve, join, dirname, isAbsolute } from 'node:path';
+import { readdir, stat } from 'node:fs/promises'; // fs.readdir, fs.stat
+import { resolve, extname, normalize as normalizePath, dirname, isAbsolute } from 'node:path';
 import * as ts from 'typescript';
 
-const excludedDirs = new Set(['node_modules', '.git', 'dist', 'build']); // Define excluded directories
+// Note: 'node_modules' is handled by path check now in findSourceFilesRecursive
+const EXCLUDED_DIR_NAMES = new Set(['.git', 'dist', 'build']); 
+const RELEVANT_EXTENSIONS = new Set(['.ts', '.js', '.tsx', '.jsx']);
+
+async function findSourceFilesRecursive(currentDirAbs: string, allFiles: Set<string>): Promise<void> {
+  let entries;
+  try {
+    entries = await readdir(currentDirAbs, { withFileTypes: true });
+  } catch (error: any) {
+    console.warn(`[Analyzer] Error reading directory ${currentDirAbs}: ${error.message}. Skipping.`);
+    return; // Skip unreadable directories
+  }
+
+  for (const entry of entries) {
+    const fullPathAbs = resolve(currentDirAbs, entry.name);
+    // Normalize paths for consistent checking (e.g., forward slashes)
+    const normalizedFullPath = normalizePath(fullPathAbs).replace(/\\/g, '/');
+
+    // Path-based node_modules exclusion: if any part of the path contains /node_modules/
+    if (normalizedFullPath.includes('/node_modules/')) {
+      continue; // Skip anything within a node_modules directory
+    }
+
+    if (entry.isDirectory()) {
+      // Check against excluded directory names (e.g., .git, dist)
+      if (EXCLUDED_DIR_NAMES.has(entry.name)) {
+        continue; // Skip this specific directory
+      }
+      // Recurse into subdirectories
+      await findSourceFilesRecursive(fullPathAbs, allFiles);
+    } else if (entry.isFile()) {
+      const fileExt = extname(entry.name);
+      if (RELEVANT_EXTENSIONS.has(fileExt)) {
+        allFiles.add(normalizedFullPath);
+      }
+    }
+    // Symbolic links: current logic with withFileTypes: true resolves symlinks before entry.isDirectory/isFile.
+    // The path check for /node_modules/ should handle cases where a symlink might point into one.
+    // If a symlink's *name* was e.g. 'node_modules' and it pointed elsewhere, EXCLUDED_DIR_NAMES would catch it.
+  }
+}
+
 
 /**
- * Recursively finds all source files (ts, js, tsx, jsx) in a directory.
- * @param dirPath The absolute path to the directory to search.
- * @returns A promise that resolves to an array of absolute file paths.
+ * Recursively finds all source files (ts, js, tsx, jsx) in a directory,
+ * applying robust exclusions for node_modules and other specified directories.
+ * @param rootDir The absolute path to the root directory to search.
+ * @returns A promise that resolves to an array of absolute, normalized file paths.
  */
-export async function findSourceFiles(dirPath: string): Promise<string[]> {
-  const entries = await readdir(dirPath, { withFileTypes: true });
-  const files = await Promise.all(
-    entries.map(async (entry) => {
-      const fullPath = resolve(dirPath, entry.name);
-      if (entry.isDirectory()) {
-        // Check if the directory name is in the excluded set
-        if (excludedDirs.has(entry.name)) {
-          return []; // Skip this directory by returning an empty array
-        }
-        return findSourceFiles(fullPath); // Recursive call for non-excluded directories
-      } else if (entry.isFile() && /\.(ts|js|tsx|jsx)$/.test(entry.name)) {
-        return fullPath;
-      }
-      return []; // Return empty array for non-matching files or other types
-    })
-  );
-  return Array.prototype.concat(...files); // Flatten the array of arrays
+export async function findSourceFiles(rootDir: string): Promise<string[]> {
+  const allFilesSet = new Set<string>();
+  const normalizedRootDir = normalizePath(rootDir).replace(/\\/g, '/');
+
+  // Root directory check: if the root itself is inside node_modules, skip.
+  if (normalizedRootDir.includes('/node_modules/')) {
+    console.warn(`[Analyzer] Warning: The provided root directory '${rootDir}' is inside a 'node_modules' directory. Analysis aborted.`);
+    return []; // Do not proceed if the root itself is a node_modules sub-directory
+  }
+  
+  // Also check if the root directory *name* is 'node_modules'
+  // This is less likely for a project root but good for completeness.
+  if (basename(normalizedRootDir) === 'node_modules') {
+     console.warn(`[Analyzer] Warning: The provided root directory '${rootDir}' is named 'node_modules'. Analysis aborted.`);
+     return [];
+  }
+
+
+  await findSourceFilesRecursive(normalizedRootDir, allFilesSet);
+  return Array.from(allFilesSet);
 }
+// Need to import basename for the check above.
 
 /**
  * Parses static import and export statements from a file's content.
@@ -47,6 +92,8 @@ export async function parseImports(filePath: string, fileContent: string): Promi
     return new Set();
   }
 }
+
+import { basename } from 'node:path'; // Added basename import
 
 function loadCompilerOptions(projectRootDir: string): ts.CompilerOptions {
   const defaultConfig: ts.CompilerOptions = {
@@ -92,6 +139,7 @@ export async function analyzeDirectory(rootDir: string): Promise<Map<string, Set
   const projectSourceFilesSet = new Set(sourceFilesArray);
 
   const compilerOptions = loadCompilerOptions(rootDir);
+  // console.log(`[DEBUG] Using compilerOptions: ${JSON.stringify(compilerOptions, null, 2)}`);
 
   const compilerHost: ts.CompilerHost = {
     fileExists: ts.sys.fileExists,
@@ -107,12 +155,14 @@ export async function analyzeDirectory(rootDir: string): Promise<Map<string, Set
   };
 
   for (const currentFile of sourceFilesArray) {
+    // console.log(`[DEBUG] Analyzing file: ${currentFile}`);
     try {
       const fileContent = await Bun.file(currentFile).text();
       const rawImports = await parseImports(currentFile, fileContent);
       const resolvedInternalImports = new Set<string>();
 
       for (const importSpecifier of rawImports) {
+        // console.log(`[DEBUG]   Import specifier: '${importSpecifier}'`);
         const result = ts.resolveModuleName(
           importSpecifier,
           currentFile,
@@ -122,24 +172,32 @@ export async function analyzeDirectory(rootDir: string): Promise<Map<string, Set
 
         if (result.resolvedModule) {
           let resolvedPath = result.resolvedModule.resolvedFileName;
-          // Ensure resolvedPath is absolute (it should be from ts.resolveModuleName)
-          if (!isAbsolute(resolvedPath)) {
-            resolvedPath = resolve(rootDir, resolvedPath); // Or based on how ts.resolveModuleName forms paths
-          }
+          // console.log(`[DEBUG]     Raw resolvedFileName: '${resolvedPath}'`);
           
-          // Filter out node_modules and non-project files
-          if (!resolvedPath.includes('/node_modules/') && !resolvedPath.includes('/node_modules\\')) { // Check for both path separators
-            if (projectSourceFilesSet.has(resolvedPath)) {
-              resolvedInternalImports.add(resolvedPath);
+          // Ensure resolvedPath is absolute for consistent processing
+          if (!isAbsolute(resolvedPath)) {
+            resolvedPath = resolve(dirname(currentFile), resolvedPath); // Resolve relative to current file or rootDir
+          }
+          // For logging consistency, replace backslashes with forward slashes
+          const normalizedLoggedPath = resolvedPath.replace(/\\/g, '/');
+          // console.log(`[DEBUG]     Normalized resolvedPath for logging/set: '${normalizedLoggedPath}'`);
+
+          const isInNodeModules = normalizedLoggedPath.includes('/node_modules/');
+          // console.log(`[DEBUG]     Is in node_modules: ${isInNodeModules}`);
+
+          if (!isInNodeModules) {
+            // Use the consistently slashed path for set lookups
+            if (projectSourceFilesSet.has(normalizedLoggedPath)) {
+              resolvedInternalImports.add(normalizedLoggedPath);
+              // console.log(`[DEBUG]       ==> ADDED: ${normalizedLoggedPath}`);
             } else {
-              // Optional: Log if a resolved path is not in node_modules but also not in project sources
-              // This could indicate a .d.ts file, a resource file, or a misconfiguration.
-              // console.warn(`[Analyzer] Resolved '${importSpecifier}' from '${currentFile}' to '${resolvedPath}', but it's not a tracked project source file. Skipping.`);
+              // console.log(`[DEBUG]       ==> SKIPPED (not in projectSourceFilesSet): ${normalizedLoggedPath}`);
             }
           } else {
-            // console.log(`[Analyzer] Ignoring resolved import for '${importSpecifier}' from '${currentFile}' to node_modules: ${resolvedPath}`);
+            // console.log(`[DEBUG]       ==> SKIPPED (in node_modules): ${normalizedLoggedPath}`);
           }
         } else {
+          // console.warn(`[DEBUG]     Could not resolve import '${importSpecifier}' from '${currentFile}'.`);
           console.warn(`[Analyzer] Could not resolve import '${importSpecifier}' from '${currentFile}' using TypeScript resolver.`);
         }
       }

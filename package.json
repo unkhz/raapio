@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "bun run src/cli.ts",
     "build": "bun build src/cli.ts --outdir dist --target bun",
-    "test": "bun test"
+    "test": "bun test",
+    "lint": "tsc --noEmit --skipLibCheck"
   },
   "dependencies": {},
   "devDependencies": {
