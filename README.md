@@ -1,5 +1,7 @@
 # Raapio
 
+[![Raapio CI](https://github.com/YOUR_OWNER/YOUR_REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/YOUR_OWNER/YOUR_REPO/actions/workflows/ci.yml)
+
 Scratch a graph of your JS/TS module imports!
 
 [![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=flat-square)](https://github.com/your-repo/raapio)
