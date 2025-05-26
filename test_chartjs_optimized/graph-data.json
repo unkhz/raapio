@@ -1,0 +1,188 @@
+{
+  "nodes": [
+    {
+      "x": 100,
+      "y": 100,
+      "label": "visualizer.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "borderColor": "rgb(59, 130, 246)"
+    },
+    {
+      "x": 220,
+      "y": 100,
+      "label": "serializer.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/serializer.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/serializer.ts",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "borderColor": "rgb(59, 130, 246)"
+    },
+    {
+      "x": 340,
+      "y": 100,
+      "label": "plugins/base.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "borderColor": "rgb(59, 130, 246)"
+    },
+    {
+      "x": 100,
+      "y": 220,
+      "label": "plugins/html/index.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/plugins/html/index.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/html/index.ts",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "borderColor": "rgb(59, 130, 246)"
+    },
+    {
+      "x": 220,
+      "y": 220,
+      "label": "plugins/mermaid/index.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/plugins/mermaid/index.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/mermaid/index.ts",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "borderColor": "rgb(59, 130, 246)"
+    },
+    {
+      "x": 340,
+      "y": 220,
+      "label": "plugins/index.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "borderColor": "rgb(59, 130, 246)"
+    },
+    {
+      "x": 100,
+      "y": 340,
+      "label": "cli.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "borderColor": "rgb(59, 130, 246)"
+    },
+    {
+      "x": 220,
+      "y": 340,
+      "label": "analyzer.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/analyzer.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/analyzer.ts",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "borderColor": "rgb(59, 130, 246)"
+    }
+  ],
+  "edges": [
+    {
+      "source": {
+        "x": 100,
+        "y": 100
+      },
+      "target": {
+        "x": 220,
+        "y": 100
+      }
+    },
+    {
+      "source": {
+        "x": 100,
+        "y": 100
+      },
+      "target": {
+        "x": 340,
+        "y": 100
+      }
+    },
+    {
+      "source": {
+        "x": 100,
+        "y": 220
+      },
+      "target": {
+        "x": 340,
+        "y": 100
+      }
+    },
+    {
+      "source": {
+        "x": 220,
+        "y": 220
+      },
+      "target": {
+        "x": 340,
+        "y": 100
+      }
+    },
+    {
+      "source": {
+        "x": 340,
+        "y": 220
+      },
+      "target": {
+        "x": 340,
+        "y": 100
+      }
+    },
+    {
+      "source": {
+        "x": 340,
+        "y": 220
+      },
+      "target": {
+        "x": 100,
+        "y": 220
+      }
+    },
+    {
+      "source": {
+        "x": 340,
+        "y": 220
+      },
+      "target": {
+        "x": 220,
+        "y": 220
+      }
+    },
+    {
+      "source": {
+        "x": 100,
+        "y": 340
+      },
+      "target": {
+        "x": 220,
+        "y": 340
+      }
+    },
+    {
+      "source": {
+        "x": 100,
+        "y": 340
+      },
+      "target": {
+        "x": 220,
+        "y": 100
+      }
+    },
+    {
+      "source": {
+        "x": 100,
+        "y": 340
+      },
+      "target": {
+        "x": 100,
+        "y": 100
+      }
+    },
+    {
+      "source": {
+        "x": 100,
+        "y": 340
+      },
+      "target": {
+        "x": 340,
+        "y": 220
+      }
+    }
+  ]
+}

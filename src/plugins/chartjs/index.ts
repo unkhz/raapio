@@ -1,4 +1,207 @@
-<!DOCTYPE html>
+import { BaseVisualizationPlugin, VisualizationData } from '../base';
+import { writeFile, mkdir } from 'node:fs/promises';
+import { join, basename } from 'node:path';
+
+export class ChartJsVisualizationPlugin extends BaseVisualizationPlugin {
+  name = 'chartjs';
+
+  async generate(data: VisualizationData, outputPath: string): Promise<void> {
+    await mkdir(outputPath, { recursive: true });
+
+    const htmlContent = this.generateHtml();
+    const chartData = this.prepareChartData(data);
+
+    await Promise.all([
+      writeFile(join(outputPath, 'index.html'), htmlContent),
+      writeFile(join(outputPath, 'graph-data.json'), JSON.stringify(chartData, null, 2))
+    ]);
+  }
+
+  private prepareChartData(data: VisualizationData) {
+    // Force-directed layout using actual edge data
+    const nodePositions = this.calculateForceDirectedLayoutWithEdges(data);
+    
+    // Prepare node data with minimal processing
+    const nodeData = data.nodes.map((node, index) => {
+      const pos = nodePositions[index];
+      const nodeType = this.getNodeType(node.label);
+      
+      return {
+        x: pos.x,
+        y: pos.y,
+        label: node.label,
+        path: node.path,
+        id: node.id,
+        color: nodeType.color,
+        borderColor: nodeType.borderColor
+      };
+    });
+
+    // Prepare edge data for lines
+    const edgeData = data.edges.map(edge => {
+      const sourceIndex = data.nodes.findIndex(n => n.id === edge.source);
+      const targetIndex = data.nodes.findIndex(n => n.id === edge.target);
+      
+      if (sourceIndex === -1 || targetIndex === -1) return null;
+      
+      const sourcePos = nodePositions[sourceIndex];
+      const targetPos = nodePositions[targetIndex];
+      
+      return {
+        source: { x: sourcePos.x, y: sourcePos.y },
+        target: { x: targetPos.x, y: targetPos.y }
+      };
+    }).filter(Boolean);
+
+    return {
+      nodes: nodeData,
+      edges: edgeData
+    };
+  }
+
+  private calculateGridLayout(nodeCount: number): Array<{x: number, y: number}> {
+    // Force-directed layout calculation (no animation, just final positions)
+    return this.calculateForceDirectedLayout(nodeCount);
+  }
+
+  private calculateForceDirectedLayoutWithEdges(data: VisualizationData): Array<{x: number, y: number}> {
+    const nodeCount = data.nodes.length;
+    const width = 1200;
+    const height = 800;
+    
+    // Initialize positions randomly
+    const positions: Array<{x: number, y: number, vx: number, vy: number}> = [];
+    for (let i = 0; i < nodeCount; i++) {
+      positions.push({
+        x: Math.random() * (width - 200) + 100,
+        y: Math.random() * (height - 200) + 100,
+        vx: 0,
+        vy: 0
+      });
+    }
+
+    // Force simulation parameters
+    const iterations = 300; // Balanced performance vs quality
+    const repulsionStrength = 2000;
+    const attractionStrength = 0.02;
+    const damping = 0.9;
+    const minDistance = 80;
+
+    // Run force simulation to completion (no animation)
+    for (let iter = 0; iter < iterations; iter++) {
+      // Apply repulsive forces between all nodes
+      for (let i = 0; i < nodeCount; i++) {
+        for (let j = i + 1; j < nodeCount; j++) {
+          const dx = positions[j].x - positions[i].x;
+          const dy = positions[j].y - positions[i].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance > 0 && distance < minDistance * 3) {
+            const force = repulsionStrength / (distance * distance + 1);
+            const fx = (dx / distance) * force;
+            const fy = (dy / distance) * force;
+            
+            positions[i].vx -= fx;
+            positions[i].vy -= fy;
+            positions[j].vx += fx;
+            positions[j].vy += fy;
+          }
+        }
+      }
+
+      // Apply attractive forces for connected nodes using actual edges
+      data.edges.forEach(edge => {
+        const sourceIndex = data.nodes.findIndex(n => n.id === edge.source);
+        const targetIndex = data.nodes.findIndex(n => n.id === edge.target);
+        
+        if (sourceIndex !== -1 && targetIndex !== -1) {
+          const dx = positions[targetIndex].x - positions[sourceIndex].x;
+          const dy = positions[targetIndex].y - positions[sourceIndex].y;
+          const distance = Math.sqrt(dx * dx + dy * dy);
+          
+          if (distance > 0) {
+            const force = distance * attractionStrength;
+            const fx = (dx / distance) * force;
+            const fy = (dy / distance) * force;
+            
+            positions[sourceIndex].vx += fx;
+            positions[sourceIndex].vy += fy;
+            positions[targetIndex].vx -= fx;
+            positions[targetIndex].vy -= fy;
+          }
+        }
+      });
+
+      // Weak centering force to prevent nodes from drifting too far
+      const centerX = width / 2;
+      const centerY = height / 2;
+      
+      for (let i = 0; i < nodeCount; i++) {
+        const dx = centerX - positions[i].x;
+        const dy = centerY - positions[i].y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        
+        if (distance > 0) {
+          const force = distance * 0.0005; // Very weak centering force
+          positions[i].vx += (dx / distance) * force;
+          positions[i].vy += (dy / distance) * force;
+        }
+      }
+
+      // Update positions and apply damping
+      for (let i = 0; i < nodeCount; i++) {
+        positions[i].vx *= damping;
+        positions[i].vy *= damping;
+        
+        positions[i].x += positions[i].vx;
+        positions[i].y += positions[i].vy;
+        
+        // Keep within bounds with some padding
+        positions[i].x = Math.max(80, Math.min(width - 80, positions[i].x));
+        positions[i].y = Math.max(80, Math.min(height - 80, positions[i].y));
+      }
+    }
+
+    // Return final positions without velocity
+    return positions.map(p => ({ x: p.x, y: p.y }));
+  }
+
+  private calculateForceDirectedLayout(nodeCount: number): Array<{x: number, y: number}> {
+    // Fallback method - not used anymore but kept for reference
+    return [];
+  }
+
+  private getNodeType(label: string): {color: string, borderColor: string} {
+    const fileName = basename(label);
+    const ext = fileName.split('.').pop()?.toLowerCase();
+    
+    switch (ext) {
+      case 'ts':
+      case 'tsx':
+        return { color: 'rgba(59, 130, 246, 0.8)', borderColor: 'rgb(59, 130, 246)' };
+      case 'js':
+      case 'jsx':
+        return { color: 'rgba(251, 191, 36, 0.8)', borderColor: 'rgb(251, 191, 36)' };
+      case 'css':
+      case 'scss':
+      case 'sass':
+        return { color: 'rgba(168, 85, 247, 0.8)', borderColor: 'rgb(168, 85, 247)' };
+      case 'html':
+        return { color: 'rgba(34, 197, 94, 0.8)', borderColor: 'rgb(34, 197, 94)' };
+      case 'json':
+        return { color: 'rgba(249, 115, 22, 0.8)', borderColor: 'rgb(249, 115, 22)' };
+      case 'md':
+        return { color: 'rgba(107, 114, 128, 0.8)', borderColor: 'rgb(107, 114, 128)' };
+      default:
+        if (!fileName.includes('.')) {
+          return { color: 'rgba(239, 68, 68, 0.8)', borderColor: 'rgb(239, 68, 68)' };
+        }
+        return { color: 'rgba(156, 163, 175, 0.8)', borderColor: 'rgb(156, 163, 175)' };
+    }
+  }
+
+  private generateHtml(): string {
+    return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -360,7 +563,7 @@
                 
                 // Node label
                 ctx.fillStyle = '#374151';
-                ctx.font = `${Math.max(10, 12 * camera.zoom)}px system-ui`;
+                ctx.font = \`\${Math.max(10, 12 * camera.zoom)}px system-ui\`;
                 ctx.textAlign = 'center';
                 ctx.textBaseline = 'middle';
                 
@@ -416,4 +619,6 @@
         }
     </script>
 </body>
-</html>
+</html>`;
+  }
+}

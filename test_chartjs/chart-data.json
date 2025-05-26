@@ -1,0 +1,228 @@
+{
+  "nodes": [
+    {
+      "x": 478.65321082498775,
+      "y": 400.3366853058239,
+      "label": "visualizer.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts",
+      "type": "TypeScript",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "size": 26
+    },
+    {
+      "x": 519.5551943102587,
+      "y": 379.25184016513356,
+      "label": "serializer.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/serializer.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/serializer.ts",
+      "type": "TypeScript",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "size": 26
+    },
+    {
+      "x": 455.58816656682933,
+      "y": 446.983756000719,
+      "label": "plugins/base.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts",
+      "type": "TypeScript",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "size": 30
+    },
+    {
+      "x": 425.33770490460097,
+      "y": 472.4052564731465,
+      "label": "plugins/html/index.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/plugins/html/index.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/html/index.ts",
+      "type": "TypeScript",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "size": 42
+    },
+    {
+      "x": 479.62576365597545,
+      "y": 506.1907499747694,
+      "label": "plugins/mermaid/index.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/plugins/mermaid/index.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/mermaid/index.ts",
+      "type": "TypeScript",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "size": 48
+    },
+    {
+      "x": 489.37574462386846,
+      "y": 467.7137261202776,
+      "label": "plugins/index.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts",
+      "type": "TypeScript",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "size": 32
+    },
+    {
+      "x": 522.9225736930053,
+      "y": 426.3510684031163,
+      "label": "cli.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts",
+      "type": "TypeScript",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "size": 12
+    },
+    {
+      "x": 566.18239007694,
+      "y": 445.7626859365141,
+      "label": "analyzer.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/analyzer.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/analyzer.ts",
+      "type": "TypeScript",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "size": 22
+    }
+  ],
+  "edges": [
+    {
+      "source": {
+        "x": 478.65321082498775,
+        "y": 400.3366853058239
+      },
+      "target": {
+        "x": 519.5551943102587,
+        "y": 379.25184016513356
+      },
+      "sourceLabel": "visualizer.ts",
+      "targetLabel": "serializer.ts"
+    },
+    {
+      "source": {
+        "x": 478.65321082498775,
+        "y": 400.3366853058239
+      },
+      "target": {
+        "x": 455.58816656682933,
+        "y": 446.983756000719
+      },
+      "sourceLabel": "visualizer.ts",
+      "targetLabel": "plugins/base.ts"
+    },
+    {
+      "source": {
+        "x": 425.33770490460097,
+        "y": 472.4052564731465
+      },
+      "target": {
+        "x": 455.58816656682933,
+        "y": 446.983756000719
+      },
+      "sourceLabel": "plugins/html/index.ts",
+      "targetLabel": "plugins/base.ts"
+    },
+    {
+      "source": {
+        "x": 479.62576365597545,
+        "y": 506.1907499747694
+      },
+      "target": {
+        "x": 455.58816656682933,
+        "y": 446.983756000719
+      },
+      "sourceLabel": "plugins/mermaid/index.ts",
+      "targetLabel": "plugins/base.ts"
+    },
+    {
+      "source": {
+        "x": 489.37574462386846,
+        "y": 467.7137261202776
+      },
+      "target": {
+        "x": 455.58816656682933,
+        "y": 446.983756000719
+      },
+      "sourceLabel": "plugins/index.ts",
+      "targetLabel": "plugins/base.ts"
+    },
+    {
+      "source": {
+        "x": 489.37574462386846,
+        "y": 467.7137261202776
+      },
+      "target": {
+        "x": 425.33770490460097,
+        "y": 472.4052564731465
+      },
+      "sourceLabel": "plugins/index.ts",
+      "targetLabel": "plugins/html/index.ts"
+    },
+    {
+      "source": {
+        "x": 489.37574462386846,
+        "y": 467.7137261202776
+      },
+      "target": {
+        "x": 479.62576365597545,
+        "y": 506.1907499747694
+      },
+      "sourceLabel": "plugins/index.ts",
+      "targetLabel": "plugins/mermaid/index.ts"
+    },
+    {
+      "source": {
+        "x": 522.9225736930053,
+        "y": 426.3510684031163
+      },
+      "target": {
+        "x": 566.18239007694,
+        "y": 445.7626859365141
+      },
+      "sourceLabel": "cli.ts",
+      "targetLabel": "analyzer.ts"
+    },
+    {
+      "source": {
+        "x": 522.9225736930053,
+        "y": 426.3510684031163
+      },
+      "target": {
+        "x": 519.5551943102587,
+        "y": 379.25184016513356
+      },
+      "sourceLabel": "cli.ts",
+      "targetLabel": "serializer.ts"
+    },
+    {
+      "source": {
+        "x": 522.9225736930053,
+        "y": 426.3510684031163
+      },
+      "target": {
+        "x": 478.65321082498775,
+        "y": 400.3366853058239
+      },
+      "sourceLabel": "cli.ts",
+      "targetLabel": "visualizer.ts"
+    },
+    {
+      "source": {
+        "x": 522.9225736930053,
+        "y": 426.3510684031163
+      },
+      "target": {
+        "x": 489.37574462386846,
+        "y": 467.7137261202776
+      },
+      "sourceLabel": "cli.ts",
+      "targetLabel": "plugins/index.ts"
+    }
+  ],
+  "stats": {
+    "totalNodes": 8,
+    "totalEdges": 11,
+    "nodeTypes": {
+      "TypeScript": 8
+    },
+    "avgDependencies": 2.2,
+    "maxDependencies": 4,
+    "nodesWithoutDependencies": 3
+  }
+}

@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raapio - Module Dependency Graph (Chart.js)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+        
+        .charts-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .chart-container {
+            position: relative;
+            background-color: #fafafa;
+            border-radius: 8px;
+            padding: 15px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .chart-title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 15px;
+            text-align: center;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .stat-card {
+            background-color: #f8fafc;
+            border-radius: 6px;
+            padding: 15px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+        }
+        
+        .stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: #1e40af;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #64748b;
+            font-weight: 500;
+        }
+        
+        .controls {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .controls p {
+            margin: 0;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        
+        .legend {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin: 15px 0;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12px;
+        }
+        
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        #nodeDetails {
+            margin-top: 15px;
+            padding: 15px;
+            background-color: #f0f9ff;
+            border-radius: 6px;
+            border-left: 4px solid #3b82f6;
+            display: none;
+        }
+        
+        .detail-title {
+            font-weight: 600;
+            color: #1e40af;
+            margin-bottom: 8px;
+        }
+        
+        .detail-text {
+            font-size: 14px;
+            color: #1f2937;
+            margin: 4px 0;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 1024px) {
+            .charts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (max-width: 640px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 15px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Module Dependency Graph</h1>
+    
+    <div class="container">
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-value" id="totalNodes">0</div>
+                <div class="stat-label">Total Modules</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="totalEdges">0</div>
+                <div class="stat-label">Dependencies</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="avgDependencies">0</div>
+                <div class="stat-label">Avg Dependencies</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="maxDependencies">0</div>
+                <div class="stat-label">Max Dependencies</div>
+            </div>
+        </div>
+        
+        <div class="charts-grid">
+            <div class="chart-container">
+                <div class="chart-title">Module Dependencies Network</div>
+                <canvas id="networkChart" width="800" height="600"></canvas>
+                <div class="legend" id="networkLegend"></div>
+                <div id="nodeDetails">
+                    <div class="detail-title">Module Details</div>
+                    <div class="detail-text" id="nodeDetailText"></div>
+                </div>
+            </div>
+            
+            <div class="chart-container">
+                <div class="chart-title">File Types Distribution</div>
+                <canvas id="typeChart" width="400" height="400"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <div class="controls">
+        <p>Hover over nodes in the network graph to see module details. Click nodes to highlight dependencies.</p>
+        <p>The network layout uses force-directed positioning to minimize overlaps and show relationships clearly.</p>
+    </div>
+
+    <script>
+        let chartData = null;
+        let networkChart = null;
+        let selectedNodeId = null;
+
+        // Load chart data
+        fetch('chart-data.json')
+            .then(response => response.json())
+            .then(data => {
+                chartData = data;
+                initializeCharts();
+                updateStats();
+            })
+            .catch(error => console.error('Error loading chart data:', error));
+
+        function initializeCharts() {
+            createNetworkChart();
+            createTypeChart();
+        }
+
+        function updateStats() {
+            document.getElementById('totalNodes').textContent = chartData.stats.totalNodes;
+            document.getElementById('totalEdges').textContent = chartData.stats.totalEdges;
+            document.getElementById('avgDependencies').textContent = chartData.stats.avgDependencies;
+            document.getElementById('maxDependencies').textContent = chartData.stats.maxDependencies;
+        }
+
+        function createNetworkChart() {
+            const ctx = document.getElementById('networkChart').getContext('2d');
+            
+            // Create datasets for each node type
+            const nodeTypes = [...new Set(chartData.nodes.map(n => n.type))];
+            const datasets = nodeTypes.map(type => {
+                const nodesOfType = chartData.nodes.filter(n => n.type === type);
+                return {
+                    label: type,
+                    data: nodesOfType.map(node => ({
+                        x: node.x,
+                        y: node.y,
+                        label: node.label,
+                        path: node.path,
+                        id: node.id,
+                        size: node.size
+                    })),
+                    backgroundColor: nodesOfType[0]?.color || 'rgba(156, 163, 175, 0.8)',
+                    borderColor: nodesOfType[0]?.color.replace('0.8', '1') || 'rgba(156, 163, 175, 1)',
+                    borderWidth: 2,
+                    pointRadius: nodesOfType.map(node => Math.max(node.size / 2, 4)),
+                    pointHoverRadius: nodesOfType.map(node => Math.max(node.size / 2 + 2, 6))
+                };
+            });
+
+            networkChart = new Chart(ctx, {
+                type: 'scatter',
+                data: { datasets },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            display: false
+                        },
+                        tooltip: {
+                            callbacks: {
+                                title: function(context) {
+                                    return context[0].raw.label;
+                                },
+                                label: function(context) {
+                                    return [
+                                        `Path: ${context.raw.path}`,
+                                        `Type: ${context.dataset.label}`,
+                                        `Position: (${Math.round(context.raw.x)}, ${Math.round(context.raw.y)})`
+                                    ];
+                                }
+                            }
+                        }
+                    },
+                    scales: {
+                        x: {
+                            type: 'linear',
+                            position: 'bottom',
+                            display: false,
+                            min: 0,
+                            max: 1000
+                        },
+                        y: {
+                            type: 'linear',
+                            display: false,
+                            min: 0,
+                            max: 800
+                        }
+                    },
+                    onHover: (event, elements) => {
+                        if (elements.length > 0) {
+                            const element = elements[0];
+                            const nodeData = element.element.$context.raw;
+                            showNodeDetails(nodeData);
+                        }
+                    },
+                    onClick: (event, elements) => {
+                        if (elements.length > 0) {
+                            const element = elements[0];
+                            const nodeData = element.element.$context.raw;
+                            highlightNodeDependencies(nodeData.id);
+                        }
+                    }
+                }
+            });
+
+            // Create legend
+            createNetworkLegend(nodeTypes, datasets);
+        }
+
+        function createNetworkLegend(nodeTypes, datasets) {
+            const legend = document.getElementById('networkLegend');
+            legend.innerHTML = '';
+            
+            nodeTypes.forEach((type, index) => {
+                const item = document.createElement('div');
+                item.className = 'legend-item';
+                
+                const color = document.createElement('div');
+                color.className = 'legend-color';
+                color.style.backgroundColor = datasets[index].backgroundColor;
+                
+                const label = document.createElement('span');
+                label.textContent = `${type} (${datasets[index].data.length})`;
+                
+                item.appendChild(color);
+                item.appendChild(label);
+                legend.appendChild(item);
+            });
+        }
+
+        function createTypeChart() {
+            const ctx = document.getElementById('typeChart').getContext('2d');
+            
+            const typeData = chartData.stats.nodeTypes;
+            const labels = Object.keys(typeData);
+            const data = Object.values(typeData);
+            const colors = [
+                'rgba(59, 130, 246, 0.8)',
+                'rgba(251, 191, 36, 0.8)',
+                'rgba(168, 85, 247, 0.8)',
+                'rgba(34, 197, 94, 0.8)',
+                'rgba(249, 115, 22, 0.8)',
+                'rgba(107, 114, 128, 0.8)',
+                'rgba(239, 68, 68, 0.8)',
+                'rgba(156, 163, 175, 0.8)'
+            ];
+
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        data: data,
+                        backgroundColor: colors.slice(0, labels.length),
+                        borderColor: colors.slice(0, labels.length).map(c => c.replace('0.8', '1')),
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                generateLabels: function(chart) {
+                                    const data = chart.data;
+                                    return data.labels.map((label, index) => ({
+                                        text: `${label} (${data.datasets[0].data[index]})`,
+                                        fillStyle: data.datasets[0].backgroundColor[index],
+                                        strokeStyle: data.datasets[0].borderColor[index],
+                                        lineWidth: data.datasets[0].borderWidth,
+                                        hidden: false,
+                                        index: index
+                                    }));
+                                }
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const total = context.dataset.data.reduce((a, b) => a + b, 0);
+                                    const percentage = Math.round((context.parsed / total) * 100);
+                                    return `${context.label}: ${context.parsed} (${percentage}%)`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function showNodeDetails(nodeData) {
+            const details = document.getElementById('nodeDetails');
+            const text = document.getElementById('nodeDetailText');
+            
+            // Find dependencies for this node
+            const dependencies = chartData.edges
+                .filter(edge => edge.sourceLabel === nodeData.label)
+                .map(edge => edge.targetLabel);
+            
+            const dependents = chartData.edges
+                .filter(edge => edge.targetLabel === nodeData.label)
+                .map(edge => edge.sourceLabel);
+            
+            text.innerHTML = `
+                <strong>File:</strong> ${nodeData.label}<br>
+                <strong>Path:</strong> ${nodeData.path}<br>
+                <strong>Dependencies:</strong> ${dependencies.length > 0 ? dependencies.join(', ') : 'None'}<br>
+                <strong>Dependents:</strong> ${dependents.length > 0 ? dependents.join(', ') : 'None'}
+            `;
+            
+            details.style.display = 'block';
+        }
+
+        function highlightNodeDependencies(nodeId) {
+            // This could be enhanced to visually highlight connections
+            console.log('Selected node:', nodeId);
+            selectedNodeId = nodeId;
+            
+            // Find and log all dependencies
+            const dependencies = chartData.edges
+                .filter(edge => {
+                    const sourceNode = chartData.nodes.find(n => n.id === edge.source);
+                    return sourceNode && sourceNode.id === nodeId;
+                })
+                .map(edge => {
+                    const targetNode = chartData.nodes.find(n => n.id === edge.target);
+                    return targetNode ? targetNode.label : null;
+                })
+                .filter(Boolean);
+            
+            console.log('Dependencies:', dependencies);
+        }
+    </script>
+</body>
+</html>
