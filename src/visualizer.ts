@@ -1,29 +1,13 @@
 import { GraphData } from './serializer';
 import { relative, isAbsolute } from 'node:path';
-
-export interface Node {
-  id: string;       // Unique identifier for the node (e.g., absolute path)
-  label: string;    // Display name for the node (e.g., relative path or file name)
-  path: string;     // Full absolute path, can be used for detailed info
-}
-
-export interface Edge {
-  source: string;   // ID of the source node
-  target: string;   // ID of the target node
-  id: string;       // Unique ID for the edge, e.g., "source->target"
-}
-
-export interface VisualizationData {
-  nodes: Node[];
-  edges: Edge[];
-}
+import { VisualizationPlugin, VisualizationData, Node, Edge } from './plugins/base';
 
 /**
  * Transforms GraphData into a format suitable for visualization libraries.
  * @param graphData The analyzed dependency graph data.
  * @returns VisualizationData containing nodes and edges.
  */
-export function prepareGraphDataForVisualization(graphData: GraphData): VisualizationData {
+export function prepareVisualizationData(graphData: GraphData): VisualizationData {
   const nodes: Node[] = [];
   const edges: Edge[] = [];
   const uniqueModulePaths = new Set<string>();
@@ -74,4 +58,26 @@ export function prepareGraphDataForVisualization(graphData: GraphData): Visualiz
   }
 
   return { nodes, edges };
+}
+
+export class Visualizer {
+  private plugins: Map<string, VisualizationPlugin> = new Map();
+
+  registerPlugin(plugin: VisualizationPlugin): void {
+    this.plugins.set(plugin.name, plugin);
+  }
+
+  async generateVisualization(graphData: GraphData, pluginName: string, outputPath: string): Promise<void> {
+    const plugin = this.plugins.get(pluginName);
+    if (!plugin) {
+      throw new Error(`Plugin '${pluginName}' not found`);
+    }
+
+    const visualizationData = prepareVisualizationData(graphData);
+    await plugin.generate(visualizationData, outputPath);
+  }
+
+  getAvailablePlugins(): string[] {
+    return Array.from(this.plugins.keys());
+  }
 }

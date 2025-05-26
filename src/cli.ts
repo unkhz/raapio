@@ -1,7 +1,8 @@
 #!/usr/bin/env bun
 import { analyzeDirectory } from './analyzer';
 import { saveGraph, getFileTimestamps, GraphData, loadGraph } from './serializer';
-import { prepareGraphDataForVisualization } from './visualizer';
+import { Visualizer } from './visualizer';
+import { HtmlVisualizationPlugin } from './plugins';
 import { resolve, dirname, join, basename } from 'node:path';
 import { existsSync, statSync } from 'node:fs'; // Using Node's sync fs for initial checks
 import { mkdir, copyFile, writeFile } from 'node:fs/promises'; // Bun.write can also be used for writeFile.
@@ -149,34 +150,11 @@ async function main() {
         process.exit(1);
       }
 
-      logInfo("Preparing data for visualization...");
-      const visualizationData = prepareGraphDataForVisualization(graphData);
-
-      logInfo(`Setting up output directory: ${absoluteOutputDir}`);
-      await mkdir(absoluteOutputDir, { recursive: true });
-
-      const vizDataPath = join(absoluteOutputDir, 'visualization_data.json');
-      logInfo(`Writing visualization data to: ${vizDataPath}`);
-      await writeFile(vizDataPath, JSON.stringify(visualizationData, null, 2));
-
-      // Determine the path to the source 'web' directory.
-      // This assumes 'src' and 'web' are siblings at the project root.
-      // import.meta.dir is specific to Bun modules.
-      const projectRoot = resolve(import.meta.dir, '..');
-      const sourceWebDir = join(projectRoot, 'web');
-
-
-      const assetsToCopy = ['index.html', 'styles.css', 'main.js'];
-      logInfo(`Copying web assets to ${absoluteOutputDir}...`);
-      for (const asset of assetsToCopy) {
-        const sourceAssetPath = join(sourceWebDir, asset);
-        const destAssetPath = join(absoluteOutputDir, asset);
-        if (!existsSync(sourceAssetPath)) {
-            logWarning(`Source asset ${sourceAssetPath} not found. Skipping.`);
-            continue;
-        }
-        await copyFile(sourceAssetPath, destAssetPath);
-      }
+      logInfo("Generating visualization with HTML plugin...");
+      const visualizer = new Visualizer();
+      visualizer.registerPlugin(new HtmlVisualizationPlugin());
+      
+      await visualizer.generateVisualization(graphData, 'html', absoluteOutputDir);
 
       logSuccess(`Visualization generated successfully in: ${absoluteOutputDir}`);
 
