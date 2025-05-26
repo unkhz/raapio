@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raapio - Module Dependency Graph (Mermaid)</title>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        
+        .container {
+            max-width: 100%;
+            margin: 0 auto;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            overflow: auto;
+        }
+        
+        .mermaid {
+            text-align: center;
+            background-color: white;
+        }
+        
+        .controls {
+            text-align: center;
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #f8f9fa;
+            border-radius: 4px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .controls p {
+            margin: 0;
+            color: #6c757d;
+            font-size: 14px;
+        }
+        
+        .download-section {
+            text-align: center;
+            margin: 20px 0;
+        }
+        
+        .download-btn {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            margin: 0 10px;
+            font-size: 14px;
+        }
+        
+        .download-btn:hover {
+            background-color: #0056b3;
+        }
+        
+        /* Responsive design */
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .container {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Module Dependency Graph</h1>
+    
+    <div class="download-section">
+        <a href="graph.mmd" download class="download-btn">Download .mmd file</a>
+    </div>
+    
+    <div class="container">
+        <div class="mermaid">
+graph LR
+    N0["visualizer.ts"]
+    N1["serializer.ts"]
+    N2["plugins/base.ts"]
+    N3["plugins/html/index.ts"]
+    N4["plugins/mermaid/index.ts"]
+    N5["plugins/index.ts"]
+    N6["cli.ts"]
+    N7["analyzer.ts"]
+
+    N0 --> N1
+    N0 --> N2
+    N3 --> N2
+    N4 --> N2
+    N5 --> N2
+    N5 --> N3
+    N5 --> N4
+    N6 --> N7
+    N6 --> N1
+    N6 --> N0
+    N6 --> N5
+
+    %% Styling
+    classDef N0 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N1 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N2 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N3 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N4 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N5 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N6 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N7 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+        </div>
+    </div>
+    
+    <div class="controls">
+        <p>This diagram shows the module dependency relationships in your project.</p>
+        <p>Different colors represent different file types. You can copy the .mmd file content to use in other Mermaid-compatible tools.</p>
+    </div>
+
+    <script>
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'default',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true,
+                curve: 'basis',
+                padding: 20
+            },
+            themeVariables: {
+                primaryColor: '#e1f5fe',
+                primaryTextColor: '#01579b',
+                primaryBorderColor: '#01579b',
+                lineColor: '#90a4ae',
+                secondaryColor: '#f3e5f5',
+                tertiaryColor: '#fff8e1'
+            }
+        });
+        
+        // Add click handler to show full paths in console
+        document.addEventListener('DOMContentLoaded', function() {
+            const mermaidSvg = document.querySelector('.mermaid svg');
+            if (mermaidSvg) {
+                mermaidSvg.addEventListener('click', function(e) {
+                    const target = e.target;
+                    if (target.tagName === 'text' || target.parentElement.tagName === 'text') {
+                        console.log('Clicked node:', target.textContent || target.parentElement.textContent);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>

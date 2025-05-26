@@ -1,0 +1,31 @@
+graph LR
+    N0["visualizer.ts"]
+    N1["serializer.ts"]
+    N2["plugins/base.ts"]
+    N3["plugins/html/index.ts"]
+    N4["plugins/mermaid/index.ts"]
+    N5["plugins/index.ts"]
+    N6["cli.ts"]
+    N7["analyzer.ts"]
+
+    N0 --> N1
+    N0 --> N2
+    N3 --> N2
+    N4 --> N2
+    N5 --> N2
+    N5 --> N3
+    N5 --> N4
+    N6 --> N7
+    N6 --> N1
+    N6 --> N0
+    N6 --> N5
+
+    %% Styling
+    classDef N0 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N1 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N2 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N3 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N4 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N5 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N6 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N7 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
