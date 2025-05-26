@@ -1,0 +1,133 @@
+{
+  "nodes": [
+    {
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts",
+      "name": "visualizer.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts",
+      "category": "typescript",
+      "group": "root",
+      "color": "#3b82f6",
+      "size": 14
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/serializer.ts",
+      "name": "serializer.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/raapio/src/serializer.ts",
+      "category": "typescript",
+      "group": "root",
+      "color": "#3b82f6",
+      "size": 14
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts",
+      "name": "base.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts",
+      "category": "typescript",
+      "group": "plugins",
+      "color": "#3b82f6",
+      "size": 14
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/html/index.ts",
+      "name": "index.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/raapio/src/plugins/html/index.ts",
+      "category": "typescript",
+      "group": "html",
+      "color": "#3b82f6",
+      "size": 14
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/mermaid/index.ts",
+      "name": "index.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/raapio/src/plugins/mermaid/index.ts",
+      "category": "typescript",
+      "group": "mermaid",
+      "color": "#3b82f6",
+      "size": 14
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts",
+      "name": "index.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts",
+      "category": "typescript",
+      "group": "plugins",
+      "color": "#3b82f6",
+      "size": 14
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts",
+      "name": "cli.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts",
+      "category": "typescript",
+      "group": "root",
+      "color": "#3b82f6",
+      "size": 14
+    },
+    {
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/analyzer.ts",
+      "name": "analyzer.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/raapio/src/analyzer.ts",
+      "category": "typescript",
+      "group": "root",
+      "color": "#3b82f6",
+      "size": 14
+    }
+  ],
+  "links": [
+    {
+      "source": "/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts",
+      "target": "/Users/unkhz/Work/unkhz/raapio/src/serializer.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts->/Users/unkhz/Work/unkhz/raapio/src/serializer.ts"
+    },
+    {
+      "source": "/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts",
+      "target": "/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts->/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts"
+    },
+    {
+      "source": "/Users/unkhz/Work/unkhz/raapio/src/plugins/html/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/html/index.ts->/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts"
+    },
+    {
+      "source": "/Users/unkhz/Work/unkhz/raapio/src/plugins/mermaid/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/mermaid/index.ts->/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts"
+    },
+    {
+      "source": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts->/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts"
+    },
+    {
+      "source": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/raapio/src/plugins/html/index.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts->/Users/unkhz/Work/unkhz/raapio/src/plugins/html/index.ts"
+    },
+    {
+      "source": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/raapio/src/plugins/mermaid/index.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts->/Users/unkhz/Work/unkhz/raapio/src/plugins/mermaid/index.ts"
+    },
+    {
+      "source": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts",
+      "target": "/Users/unkhz/Work/unkhz/raapio/src/analyzer.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts->/Users/unkhz/Work/unkhz/raapio/src/analyzer.ts"
+    },
+    {
+      "source": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts",
+      "target": "/Users/unkhz/Work/unkhz/raapio/src/serializer.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts->/Users/unkhz/Work/unkhz/raapio/src/serializer.ts"
+    },
+    {
+      "source": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts",
+      "target": "/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts->/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts"
+    },
+    {
+      "source": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts",
+      "target": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts->/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts"
+    }
+  ]
+}

@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Raapio - Module Dependency Graph (GoJS)</title>
+    <script src="https://unpkg.com/gojs@3.0.2/release/go.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background-color: #f8fafc;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        #header {
+            background: white;
+            border-bottom: 1px solid #e2e8f0;
+            padding: 12px 20px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            position: relative;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 100%;
+        }
+        
+        .title {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1e293b;
+        }
+        
+        .controls {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+        }
+        
+        .btn {
+            background: #f1f5f9;
+            border: 1px solid #cbd5e1;
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 13px;
+            cursor: pointer;
+            color: #475569;
+            transition: all 0.2s;
+        }
+        
+        .btn:hover {
+            background: #e2e8f0;
+            border-color: #94a3b8;
+        }
+        
+        .btn:active {
+            background: #cbd5e1;
+        }
+        
+        .stats {
+            font-size: 12px;
+            color: #64748b;
+            margin-left: 12px;
+        }
+        
+        #diagramDiv {
+            width: 100%;
+            height: calc(100vh - 60px);
+            background-color: white;
+            border: none;
+            outline: none;
+        }
+        
+        .legend {
+            position: absolute;
+            top: 80px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            font-size: 12px;
+            max-width: 200px;
+            z-index: 100;
+        }
+        
+        .legend-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: #374151;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 4px;
+        }
+        
+        .legend-color {
+            width: 12px;
+            height: 12px;
+            border-radius: 2px;
+            border: 1px solid #d1d5db;
+        }
+        
+        .info-panel {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 16px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            font-size: 12px;
+            max-width: 400px;
+            display: none;
+            z-index: 100;
+        }
+        
+        .info-title {
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 8px;
+        }
+        
+        .info-detail {
+            color: #6b7280;
+            margin-bottom: 4px;
+        }
+        
+        .connections {
+            margin-top: 12px;
+        }
+        
+        .connection-section {
+            margin-bottom: 8px;
+        }
+        
+        .connection-label {
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 4px;
+        }
+        
+        .connection-list {
+            color: #6b7280;
+            line-height: 1.4;
+            max-height: 80px;
+            overflow-y: auto;
+        }
+        
+        /* Custom scrollbar */
+        .connection-list::-webkit-scrollbar {
+            width: 4px;
+        }
+        
+        .connection-list::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        
+        .connection-list::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body>
+    <div id="header">
+        <div class="header-content">
+            <div class="title">Module Dependency Graph</div>
+            <div class="controls">
+                <button class="btn" onclick="fitToScreen()">Fit All</button>
+                <button class="btn" onclick="zoomIn()">Zoom In</button>
+                <button class="btn" onclick="zoomOut()">Zoom Out</button>
+                <button class="btn" onclick="resetZoom()">Reset</button>
+                <button class="btn" onclick="toggleLayout()">Switch Layout</button>
+                <div class="stats">
+                    <span id="nodeCount">0</span> nodes, <span id="linkCount">0</span> dependencies
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div id="diagramDiv"></div>
+    
+    <div class="legend">
+        <div class="legend-title">File Types</div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #3b82f6;"></div>
+            <span>TypeScript</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #f59e0b;"></div>
+            <span>JavaScript</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #8b5cf6;"></div>
+            <span>Stylesheets</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #10b981;"></div>
+            <span>HTML</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #f97316;"></div>
+            <span>Config</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #ef4444;"></div>
+            <span>Modules</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: #6b7280;"></div>
+            <span>Documentation</span>
+        </div>
+    </div>
+    
+    <div class="info-panel" id="infoPanel">
+        <div class="info-title" id="infoTitle">Module Details</div>
+        <div class="info-detail" id="infoPath"></div>
+        <div class="connections">
+            <div class="connection-section">
+                <div class="connection-label">Dependencies:</div>
+                <div class="connection-list" id="dependencies">None</div>
+            </div>
+            <div class="connection-section">
+                <div class="connection-label">Dependents:</div>
+                <div class="connection-list" id="dependents">None</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let diagram = null;
+        let graphData = null;
+        let currentLayout = 'layered';
+
+        // Initialize GoJS diagram
+        function initDiagram() {
+            const $ = go.GraphObject.make;
+
+            diagram = new go.Diagram("diagramDiv", {
+                // Layout configuration
+                layout: $(go.LayeredDigraphLayout, {
+                    direction: 0, // 0 = rightward, 90 = downward
+                    layerSpacing: 80,
+                    columnSpacing: 40,
+                    setsPortSpots: false
+                }),
+                
+                // Diagram configuration
+                "undoManager.isEnabled": true,
+                "toolManager.hoverDelay": 100,
+                allowHorizontalScroll: true,
+                allowVerticalScroll: true,
+                allowZoom: true,
+                allowSelect: true,
+                autoScale: go.Diagram.Uniform,
+                contentAlignment: go.Spot.Center,
+                
+                // Grid configuration
+                grid: $(go.Panel, "Grid",
+                    $(go.Shape, "LineH", { stroke: "#f1f5f9", strokeWidth: 1 }),
+                    $(go.Shape, "LineV", { stroke: "#f1f5f9", strokeWidth: 1 })
+                ),
+                
+                // Selection events
+                "SelectionMoved": onSelectionChanged,
+                "ChangedSelection": onSelectionChanged
+            });
+
+            // Node template
+            diagram.nodeTemplate = $(go.Node, "Auto",
+                {
+                    selectionAdorned: true,
+                    selectionObjectName: "BODY",
+                    mouseEnter: onNodeHover,
+                    mouseLeave: onNodeLeave,
+                    click: onNodeClick
+                },
+                new go.Binding("location", "loc", go.Point.parse).makeTwoWay(go.Point.stringify),
+                
+                // Node shape
+                $(go.Shape, "RoundedRectangle", {
+                    name: "BODY",
+                    strokeWidth: 2,
+                    stroke: "#e2e8f0",
+                    portId: "",
+                    cursor: "pointer",
+                    minSize: new go.Size(100, 40)
+                },
+                new go.Binding("fill", "color"),
+                new go.Binding("stroke", "color", (color) => go.Brush.darkenBy(color, 0.3))
+                ),
+                
+                // Node text
+                $(go.TextBlock, {
+                    margin: new go.Margin(8, 12),
+                    font: "12px system-ui, sans-serif",
+                    stroke: "#1e293b",
+                    textAlign: "center",
+                    maxSize: new go.Size(150, NaN),
+                    overflow: go.TextBlock.OverflowEllipsis
+                },
+                new go.Binding("text", "text")
+                )
+            );
+
+            // Link template
+            diagram.linkTemplate = $(go.Link,
+                {
+                    routing: go.Link.AvoidsNodes,
+                    curve: go.Link.JumpOver,
+                    corner: 5,
+                    toShortLength: 4,
+                    selectable: false
+                },
+                
+                // Link shape
+                $(go.Shape, {
+                    strokeWidth: 1.5,
+                    stroke: "#94a3b8"
+                }),
+                
+                // Arrowhead
+                $(go.Shape, {
+                    toArrow: "Standard",
+                    strokeWidth: 0,
+                    fill: "#94a3b8",
+                    scale: 1.2
+                })
+            );
+
+            // Group template for directory grouping
+            diagram.groupTemplate = $(go.Group, "Auto",
+                {
+                    layout: $(go.GridLayout, {
+                        wrappingColumn: 3,
+                        cellSize: new go.Size(1, 1),
+                        spacing: new go.Size(20, 20)
+                    }),
+                    isSubGraphExpanded: true,
+                    selectionAdorned: false
+                },
+                
+                $(go.Shape, "RoundedRectangle", {
+                    fill: "rgba(0,0,0,0.05)",
+                    stroke: "#cbd5e1",
+                    strokeWidth: 1,
+                    strokeDashArray: [3, 3]
+                }),
+                
+                $(go.Panel, "Vertical",
+                    $(go.Panel, "Horizontal", {
+                        margin: new go.Margin(10, 10, 5, 10)
+                    },
+                    $(go.TextBlock, {
+                        font: "bold 11px system-ui, sans-serif",
+                        stroke: "#475569"
+                    },
+                    new go.Binding("text", "text"))
+                    ),
+                    $(go.Placeholder, {
+                        margin: new go.Margin(0, 10, 10, 10)
+                    })
+                )
+            );
+        }
+
+        // Event handlers
+        function onNodeHover(e, node) {
+            showNodeInfo(node.data);
+        }
+
+        function onNodeLeave(e, node) {
+            // Keep info visible for now - hide on click outside
+        }
+
+        function onNodeClick(e, node) {
+            showNodeInfo(node.data);
+        }
+
+        function onSelectionChanged() {
+            const selection = diagram.selection.first();
+            if (selection && selection.data) {
+                showNodeInfo(selection.data);
+            }
+        }
+
+        function showNodeInfo(nodeData) {
+            if (!nodeData || !graphData) return;
+
+            const panel = document.getElementById('infoPanel');
+            document.getElementById('infoTitle').textContent = nodeData.text;
+            document.getElementById('infoPath').textContent = nodeData.fullPath;
+
+            // Find dependencies and dependents
+            const dependencies = graphData.linkDataArray
+                .filter(link => link.from === nodeData.key)
+                .map(link => {
+                    const targetNode = graphData.nodeDataArray.find(n => n.key === link.to);
+                    return targetNode ? targetNode.text : 'Unknown';
+                });
+
+            const dependents = graphData.linkDataArray
+                .filter(link => link.to === nodeData.key)
+                .map(link => {
+                    const sourceNode = graphData.nodeDataArray.find(n => n.key === link.from);
+                    return sourceNode ? sourceNode.text : 'Unknown';
+                });
+
+            document.getElementById('dependencies').innerHTML = 
+                dependencies.length > 0 ? dependencies.join('<br>') : '<em>None</em>';
+            document.getElementById('dependents').innerHTML = 
+                dependents.length > 0 ? dependents.join('<br>') : '<em>None</em>';
+
+            panel.style.display = 'block';
+        }
+
+        // Control functions
+        function fitToScreen() {
+            diagram.commandHandler.zoomToFit();
+        }
+
+        function zoomIn() {
+            diagram.commandHandler.increaseZoom();
+        }
+
+        function zoomOut() {
+            diagram.commandHandler.decreaseZoom();
+        }
+
+        function resetZoom() {
+            diagram.scale = 1;
+            diagram.centerRect(diagram.documentBounds);
+        }
+
+        function toggleLayout() {
+            const $ = go.GraphObject.make;
+            
+            if (currentLayout === 'layered') {
+                // Switch to force-directed layout
+                diagram.layout = $(go.ForceDirectedLayout, {
+                    maxIterations: 100,
+                    defaultSpringLength: 100,
+                    defaultElectricalCharge: 150
+                });
+                currentLayout = 'force';
+            } else {
+                // Switch back to layered layout
+                diagram.layout = $(go.LayeredDigraphLayout, {
+                    direction: 0,
+                    layerSpacing: 80,
+                    columnSpacing: 40,
+                    setsPortSpots: false
+                });
+                currentLayout = 'layered';
+            }
+            
+            diagram.layoutDiagram(true);
+        }
+
+        // Hide info panel when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.info-panel') && !e.target.closest('#diagramDiv')) {
+                document.getElementById('infoPanel').style.display = 'none';
+            }
+        });
+
+        // Load data and initialize
+        fetch('graph-data.json')
+            .then(response => response.json())
+            .then(data => {
+                graphData = data;
+                
+                // Update stats
+                document.getElementById('nodeCount').textContent = data.nodeDataArray.length;
+                document.getElementById('linkCount').textContent = data.linkDataArray.length;
+                
+                // Initialize diagram
+                initDiagram();
+                
+                // Load data into diagram
+                diagram.model = new go.GraphLinksModel(
+                    data.nodeDataArray,
+                    data.linkDataArray
+                );
+                
+                // Auto-fit after layout
+                setTimeout(() => {
+                    fitToScreen();
+                }, 100);
+            })
+            .catch(error => {
+                console.error('Error loading graph data:', error);
+            });
+    </script>
+</body>
+</html>

@@ -329,14 +329,6 @@
 
             g = svg.append("g");
 
-            // Hide info panel when clicking outside nodes
-            svg.on("click", () => {
-                if (nodeElements) nodeElements.classed("selected", false);
-                if (linkElements) linkElements.classed("highlighted", false);
-                selectedNode = null;
-                document.getElementById('infoPanel').style.display = 'none';
-            });
-
             // Handle window resize
             window.addEventListener('resize', () => {
                 const newWidth = window.innerWidth;
@@ -350,14 +342,8 @@
         }
 
         function createForceLayout() {
-            if (!nodes || !links) return;
-            
             const width = window.innerWidth;
             const height = window.innerHeight - 60;
-
-            if (simulation) {
-                simulation.stop();
-            }
 
             simulation = d3.forceSimulation(nodes)
                 .force("link", d3.forceLink(links).id(d => d.id).distance(100))
@@ -562,30 +548,20 @@
 
         // Control functions
         function fitToScreen() {
-            if (!g || !nodes || nodes.length === 0) return;
-            
-            try {
-                const bounds = g.node().getBBox();
-                const fullWidth = +svg.attr("width");
-                const fullHeight = +svg.attr("height");
-                const width = bounds.width;
-                const height = bounds.height;
-                const midX = bounds.x + width / 2;
-                const midY = bounds.y + height / 2;
-                
-                if (width === 0 || height === 0) return;
-                
-                const scale = Math.min(0.8, 0.8 / Math.max(width / fullWidth, height / fullHeight));
-                const translate = [fullWidth / 2 - scale * midX, fullHeight / 2 - scale * midY];
+            const bounds = g.node().getBBox();
+            const fullWidth = svg.attr("width");
+            const fullHeight = svg.attr("height");
+            const width = bounds.width;
+            const height = bounds.height;
+            const midX = bounds.x + width / 2;
+            const midY = bounds.y + height / 2;
+            if (width == 0 || height == 0) return;
+            const scale = 0.8 / Math.max(width / fullWidth, height / fullHeight);
+            const translate = [fullWidth / 2 - scale * midX, fullHeight / 2 - scale * midY];
 
-                svg.transition()
-                    .duration(750)
-                    .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
-            } catch (error) {
-                console.warn('Could not fit to screen:', error);
-                // Fallback: just reset to center
-                resetView();
-            }
+            svg.transition()
+                .duration(750)
+                .call(zoom.transform, d3.zoomIdentity.translate(translate[0], translate[1]).scale(scale));
         }
 
         function zoomIn() {
@@ -617,6 +593,14 @@
             }
         }
 
+        // Hide info panel when clicking outside
+        svg.on("click", () => {
+            nodeElements.classed("selected", false);
+            linkElements.classed("highlighted", false);
+            selectedNode = null;
+            document.getElementById('infoPanel').style.display = 'none';
+        });
+
         // Initialize and load data
         initVisualization();
 
@@ -633,16 +617,8 @@
                 
                 renderGraph();
                 
-                // Auto-fit after the simulation has settled
-                setTimeout(() => {
-                    if (simulation) {
-                        simulation.on("end", () => {
-                            setTimeout(fitToScreen, 500);
-                        });
-                    } else {
-                        setTimeout(fitToScreen, 500);
-                    }
-                }, 1000);
+                // Auto-fit after a short delay
+                setTimeout(fitToScreen, 1000);
             })
             .catch(error => {
                 console.error('Error loading graph data:', error);

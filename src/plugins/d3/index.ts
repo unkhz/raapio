@@ -1,4 +1,119 @@
-<!DOCTYPE html>
+import { BaseVisualizationPlugin, VisualizationData } from '../base';
+import { writeFile, mkdir } from 'node:fs/promises';
+import { join, basename, dirname } from 'node:path';
+
+export class D3VisualizationPlugin extends BaseVisualizationPlugin {
+  name = 'd3';
+
+  async generate(data: VisualizationData, outputPath: string): Promise<void> {
+    await mkdir(outputPath, { recursive: true });
+
+    const htmlContent = this.generateHtml();
+    const graphData = this.prepareD3Data(data);
+
+    await Promise.all([
+      writeFile(join(outputPath, 'index.html'), htmlContent),
+      writeFile(join(outputPath, 'graph-data.json'), JSON.stringify(graphData, null, 2))
+    ]);
+  }
+
+  private prepareD3Data(data: VisualizationData) {
+    // Prepare nodes for D3 format
+    const nodes = data.nodes.map(node => {
+      const nodeInfo = this.getNodeInfo(node.label, node.path);
+      
+      return {
+        id: node.id,
+        name: nodeInfo.displayName,
+        fullPath: node.path,
+        category: nodeInfo.category,
+        group: nodeInfo.group,
+        color: nodeInfo.color,
+        size: nodeInfo.size
+      };
+    });
+
+    // Prepare links for D3 format
+    const links = data.edges.map(edge => ({
+      source: edge.source,
+      target: edge.target,
+      id: edge.id
+    }));
+
+    return { nodes, links };
+  }
+
+  private getNodeInfo(label: string, path: string) {
+    const fileName = basename(path);
+    const dirName = dirname(path).split('/').pop() || '';
+    const ext = fileName.split('.').pop()?.toLowerCase();
+    
+    // Determine category and styling based on file type
+    let category = 'default';
+    let color = '#e5e7eb';
+    let size = 12;
+    
+    switch (ext) {
+      case 'ts':
+      case 'tsx':
+        category = 'typescript';
+        color = '#3b82f6';
+        size = 14;
+        break;
+      case 'js':
+      case 'jsx':
+        category = 'javascript';
+        color = '#f59e0b';
+        size = 14;
+        break;
+      case 'css':
+      case 'scss':
+      case 'sass':
+        category = 'stylesheet';
+        color = '#8b5cf6';
+        size = 12;
+        break;
+      case 'html':
+        category = 'html';
+        color = '#10b981';
+        size = 12;
+        break;
+      case 'json':
+        category = 'config';
+        color = '#f97316';
+        size = 10;
+        break;
+      case 'md':
+        category = 'documentation';
+        color = '#6b7280';
+        size = 10;
+        break;
+      default:
+        if (!fileName.includes('.')) {
+          category = 'module';
+          color = '#ef4444';
+          size = 16;
+        }
+        break;
+    }
+
+    // Determine group based on directory structure
+    let group = dirName && dirName !== 'src' ? dirName : 'root';
+
+    // Create readable display name
+    const displayName = fileName.length > 20 ? fileName.substring(0, 17) + '...' : fileName;
+
+    return {
+      displayName,
+      category,
+      group,
+      color,
+      size
+    };
+  }
+
+  private generateHtml(): string {
+    return `<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -649,4 +764,6 @@
             });
     </script>
 </body>
-</html>
+</html>`;
+  }
+}

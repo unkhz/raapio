@@ -1,0 +1,153 @@
+{
+  "nodeDataArray": [
+    {
+      "key": "/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts",
+      "text": "visualizer.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts",
+      "category": "typescript",
+      "group": "",
+      "color": "#3b82f6",
+      "size": "medium"
+    },
+    {
+      "key": "/Users/unkhz/Work/unkhz/raapio/src/serializer.ts",
+      "text": "serializer.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/raapio/src/serializer.ts",
+      "category": "typescript",
+      "group": "",
+      "color": "#3b82f6",
+      "size": "medium"
+    },
+    {
+      "key": "/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts",
+      "text": "base.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts",
+      "category": "typescript",
+      "group": "plugins",
+      "color": "#3b82f6",
+      "size": "medium"
+    },
+    {
+      "key": "/Users/unkhz/Work/unkhz/raapio/src/plugins/html/index.ts",
+      "text": "index.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/raapio/src/plugins/html/index.ts",
+      "category": "typescript",
+      "group": "html",
+      "color": "#3b82f6",
+      "size": "medium"
+    },
+    {
+      "key": "/Users/unkhz/Work/unkhz/raapio/src/plugins/mermaid/index.ts",
+      "text": "index.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/raapio/src/plugins/mermaid/index.ts",
+      "category": "typescript",
+      "group": "mermaid",
+      "color": "#3b82f6",
+      "size": "medium"
+    },
+    {
+      "key": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts",
+      "text": "index.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts",
+      "category": "typescript",
+      "group": "plugins",
+      "color": "#3b82f6",
+      "size": "medium"
+    },
+    {
+      "key": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts",
+      "text": "cli.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts",
+      "category": "typescript",
+      "group": "",
+      "color": "#3b82f6",
+      "size": "medium"
+    },
+    {
+      "key": "/Users/unkhz/Work/unkhz/raapio/src/analyzer.ts",
+      "text": "analyzer.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/raapio/src/analyzer.ts",
+      "category": "typescript",
+      "group": "",
+      "color": "#3b82f6",
+      "size": "medium"
+    }
+  ],
+  "linkDataArray": [
+    {
+      "from": "/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts",
+      "to": "/Users/unkhz/Work/unkhz/raapio/src/serializer.ts",
+      "category": "dependency"
+    },
+    {
+      "from": "/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts",
+      "to": "/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts",
+      "category": "dependency"
+    },
+    {
+      "from": "/Users/unkhz/Work/unkhz/raapio/src/plugins/html/index.ts",
+      "to": "/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts",
+      "category": "dependency"
+    },
+    {
+      "from": "/Users/unkhz/Work/unkhz/raapio/src/plugins/mermaid/index.ts",
+      "to": "/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts",
+      "category": "dependency"
+    },
+    {
+      "from": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts",
+      "to": "/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts",
+      "category": "dependency"
+    },
+    {
+      "from": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts",
+      "to": "/Users/unkhz/Work/unkhz/raapio/src/plugins/html/index.ts",
+      "category": "dependency"
+    },
+    {
+      "from": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts",
+      "to": "/Users/unkhz/Work/unkhz/raapio/src/plugins/mermaid/index.ts",
+      "category": "dependency"
+    },
+    {
+      "from": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts",
+      "to": "/Users/unkhz/Work/unkhz/raapio/src/analyzer.ts",
+      "category": "dependency"
+    },
+    {
+      "from": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts",
+      "to": "/Users/unkhz/Work/unkhz/raapio/src/serializer.ts",
+      "category": "dependency"
+    },
+    {
+      "from": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts",
+      "to": "/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts",
+      "category": "dependency"
+    },
+    {
+      "from": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts",
+      "to": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts",
+      "category": "dependency"
+    }
+  ],
+  "groupDataArray": [
+    {
+      "key": "plugins",
+      "text": "plugins",
+      "isGroup": true,
+      "color": "#f0f9ff"
+    },
+    {
+      "key": "html",
+      "text": "html",
+      "isGroup": true,
+      "color": "#f8fafc"
+    },
+    {
+      "key": "mermaid",
+      "text": "mermaid",
+      "isGroup": true,
+      "color": "#f8fafc"
+    }
+  ]
+}

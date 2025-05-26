@@ -1,1230 +1,960 @@
 {
   "nodes": [
     {
-      "x": 585.3644157915135,
-      "y": 469.40825914148036,
-      "label": "packages/gatherer-stdin/listener-mock.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/listener-mock.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/listener-mock.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "listener-mock.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/listener-mock.ts",
+      "category": "typescript",
+      "group": "gatherer-stdin",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 605.4253395669582,
-      "y": 413.5173838759874,
-      "label": "packages/gatherer-stdin/lib/args.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "args.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 773.2848235319804,
-      "y": 411.93866624497934,
-      "label": "packages/gatherer-stdin/lib/transform.test.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/transform.test.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/transform.test.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "transform.test.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/transform.test.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 726.0316424227068,
-      "y": 423.1693478474792,
-      "label": "packages/gatherer-stdin/lib/transform.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/transform.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/transform.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "transform.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/transform.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 669.0907091257951,
-      "y": 427.0028168485277,
-      "label": "packages/gatherer-stdin/lib/listener-read.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/listener-read.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/listener-read.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "listener-read.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/listener-read.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 545.7681866489505,
-      "y": 412.56379418125266,
-      "label": "packages/gatherer-stdin/lib/args.test.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.test.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.test.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "args.test.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.test.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 622.1362918430295,
-      "y": 350.14456719681846,
-      "label": "packages/gatherer-stdin/lib/queue-write.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/queue-write.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/queue-write.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "queue-write.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/queue-write.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 647.2612640178962,
-      "y": 301.6161583432618,
-      "label": "packages/gatherer-stdin/lib/env.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/env.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/env.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "env.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/env.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 644.689720489645,
-      "y": 388.8162117196791,
-      "label": "packages/gatherer-stdin/index.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/index.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/index.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "index.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/index.ts",
+      "category": "typescript",
+      "group": "gatherer-stdin",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 80,
-      "y": 80,
-      "label": "packages/common-archive-client/lib/env.test.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/env.test.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/env.test.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "env.test.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/env.test.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 80,
-      "y": 404.6186281333937,
-      "label": "packages/common-archive-client/lib/env.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/env.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/env.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "env.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/env.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 136.5818668277333,
-      "y": 579.7077013739832,
-      "label": "packages/common-archive-client/lib/client.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "client.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 80,
-      "y": 720,
-      "label": "packages/common-archive-client/lib/client.test.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.test.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.test.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "client.test.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.test.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 285.367487971,
-      "y": 616.221814429224,
-      "label": "packages/common-archive-client/index.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/index.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/index.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "index.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/index.ts",
+      "category": "typescript",
+      "group": "common-archive-client",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 720,
-      "label": "packages/common-archive-client/vitest.config.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/vitest.config.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/vitest.config.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "vitest.config.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/vitest.config.ts",
+      "category": "typescript",
+      "group": "common-archive-client",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 830.2457510317024,
-      "y": 660.144717789297,
-      "label": "packages/common-data/lib/formats/ruuvi.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/ruuvi.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/ruuvi.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "ruuvi.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/ruuvi.ts",
+      "category": "typescript",
+      "group": "formats",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 857.4490426002906,
-      "y": 625.7063930116274,
-      "label": "packages/common-data/lib/formats/ruuvi.test.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/ruuvi.test.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/ruuvi.test.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "ruuvi.test.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/ruuvi.test.ts",
+      "category": "typescript",
+      "group": "formats",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 775.1537518365354,
-      "y": 662.1103674811312,
-      "label": "packages/common-data/lib/formats/index.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/index.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/index.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "index.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/index.ts",
+      "category": "typescript",
+      "group": "formats",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 630.9310026831273,
-      "y": 645.1463140866446,
-      "label": "packages/common-data/lib/schemas.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/schemas.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/schemas.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "schemas.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/schemas.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 693.5313242321788,
-      "y": 647.6339545419385,
-      "label": "packages/common-data/index.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/index.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/index.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "index.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/index.ts",
+      "category": "typescript",
+      "group": "common-data",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 214.8361519415334,
-      "y": 720,
-      "label": "packages/common-data/vitest.config.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/vitest.config.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/vitest.config.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "vitest.config.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/vitest.config.ts",
+      "category": "typescript",
+      "group": "common-data",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 593.838697069018,
-      "y": 214.2237390653377,
-      "label": "packages/archive/lib/env.test.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/env.test.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/env.test.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "env.test.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/env.test.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 603.0949985161245,
-      "y": 169.52021672330955,
-      "label": "packages/archive/lib/env.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/env.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/env.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "env.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/env.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 625.185486678612,
-      "y": 80,
-      "label": "packages/archive/lib/router.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/router.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/router.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "router.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/router.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 577.9433816213635,
-      "y": 80,
-      "label": "packages/archive/lib/context.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/context.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/context.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "context.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/context.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 602.987139255069,
-      "y": 119.13519707776125,
-      "label": "packages/archive/index.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/index.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/index.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "index.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/index.ts",
+      "category": "typescript",
+      "group": "archive",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 80,
-      "y": 80,
-      "label": "packages/archive/vitest.config.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/vitest.config.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/vitest.config.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "vitest.config.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/vitest.config.ts",
+      "category": "typescript",
+      "group": "archive",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 80,
-      "label": "packages/publisher/lib/queue-read.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/queue-read.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/queue-read.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "queue-read.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/queue-read.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 720,
-      "label": "packages/publisher/lib/args.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/args.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/args.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "args.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/args.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 80,
-      "label": "packages/publisher/lib/env.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/env.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/env.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "env.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/env.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 720,
-      "label": "packages/publisher/lib/args.test.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/args.test.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/args.test.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "args.test.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/args.test.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 80,
-      "label": "packages/publisher/lib/archive-write.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/archive-write.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/archive-write.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "archive-write.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/archive-write.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 80,
-      "y": 80,
-      "label": "packages/publisher/index.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/index.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/index.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "index.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/index.ts",
+      "category": "typescript",
+      "group": "publisher",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 80,
-      "y": 720,
-      "label": "packages/publisher/vitest.config.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/vitest.config.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/vitest.config.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "vitest.config.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/vitest.config.ts",
+      "category": "typescript",
+      "group": "publisher",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 720,
-      "label": "packages/common-postgres/migrations/002-update-config.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/002-update-config.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/002-update-config.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "002-update-config.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/002-update-config.ts",
+      "category": "typescript",
+      "group": "migrations",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 320.88056926490975,
-      "y": 614.5026349094752,
-      "label": "packages/common-postgres/migrations/010-drop-materialized-views.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/010-drop-materialized-views.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/010-drop-materialized-views.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "010-drop-material...",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/010-drop-materialized-views.ts",
+      "category": "typescript",
+      "group": "migrations",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 283.7830220076338,
-      "y": 585.8620008524068,
-      "label": "packages/common-postgres/migrations/006-downsample-measurement.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/006-downsample-measurement.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/006-downsample-measurement.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "006-downsample-me...",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/006-downsample-measurement.ts",
+      "category": "typescript",
+      "group": "migrations",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 361.6946249936358,
-      "y": 641.154860524701,
-      "label": "packages/common-postgres/migrations/007-refresh-materialized-views.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/007-refresh-materialized-views.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/007-refresh-materialized-views.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "007-refresh-mater...",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/007-refresh-materialized-views.ts",
+      "category": "typescript",
+      "group": "migrations",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 80,
-      "label": "packages/common-postgres/migrations/005-refactor-measurement.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/005-refactor-measurement.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/005-refactor-measurement.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "005-refactor-meas...",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/005-refactor-measurement.ts",
+      "category": "typescript",
+      "group": "migrations",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 80,
-      "label": "packages/common-postgres/migrations/004-add-ruuvi-health-table.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/004-add-ruuvi-health-table.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/004-add-ruuvi-health-table.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "004-add-ruuvi-hea...",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/004-add-ruuvi-health-table.ts",
+      "category": "typescript",
+      "group": "migrations",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 392.13417501896436,
-      "y": 80,
-      "label": "packages/common-postgres/migrations/003-add-source-view.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/003-add-source-view.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/003-add-source-view.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "003-add-source-vi...",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/003-add-source-view.ts",
+      "category": "typescript",
+      "group": "migrations",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 720,
-      "label": "packages/common-postgres/migrations/011-use-real-aggregate-tables.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/011-use-real-aggregate-tables.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/011-use-real-aggregate-tables.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "011-use-real-aggr...",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/011-use-real-aggregate-tables.ts",
+      "category": "typescript",
+      "group": "migrations",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 153.13484711053084,
-      "y": 426.3669002444928,
-      "label": "packages/common-postgres/migrations/000-use-timescaledb.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/000-use-timescaledb.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/000-use-timescaledb.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "000-use-timescale...",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/000-use-timescaledb.ts",
+      "category": "typescript",
+      "group": "migrations",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 720,
-      "label": "packages/common-postgres/migrations/001-init.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/001-init.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/001-init.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "001-init.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/001-init.ts",
+      "category": "typescript",
+      "group": "migrations",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 430.076708934066,
-      "y": 200.2580604905701,
-      "label": "packages/common-postgres/manual-migrate.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/manual-migrate.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/manual-migrate.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "manual-migrate.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/manual-migrate.ts",
+      "category": "typescript",
+      "group": "common-postgres",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 441.56280751652196,
-      "y": 234.32188367348903,
-      "label": "packages/common-postgres/lib/migrate.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/migrate.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/migrate.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "migrate.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/migrate.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 398.9076993314393,
-      "y": 252.33004258020054,
-      "label": "packages/common-postgres/lib/client.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "client.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 311.7123560093867,
-      "y": 174.50875988577357,
-      "label": "packages/common-postgres/lib/env.test.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/env.test.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/env.test.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "env.test.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/env.test.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 349.3759635229432,
-      "y": 216.61352041355153,
-      "label": "packages/common-postgres/lib/env.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/env.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/env.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "env.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/env.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 450.94454293030134,
-      "y": 283.8920866435441,
-      "label": "packages/common-postgres/lib/database.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/database.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/database.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "database.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/database.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 348.7851386952607,
-      "y": 270.1201528981285,
-      "label": "packages/common-postgres/lib/client.test.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.test.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.test.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "client.test.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.test.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 416.57981713824813,
-      "y": 299.3397102466137,
-      "label": "packages/common-postgres/index.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/index.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/index.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "index.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/index.ts",
+      "category": "typescript",
+      "group": "common-postgres",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 80,
-      "label": "packages/common-postgres/vitest.config.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/vitest.config.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/vitest.config.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "vitest.config.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/vitest.config.ts",
+      "category": "typescript",
+      "group": "common-postgres",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 719.3767528232563,
-      "y": 720,
-      "label": "packages/gatherer-http/lib/args.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/args.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/args.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "args.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/args.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 786.2199642007265,
-      "y": 720,
-      "label": "packages/gatherer-http/lib/transform.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/transform.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/transform.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "transform.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/transform.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 720,
-      "label": "packages/gatherer-http/lib/args.test.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/args.test.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/args.test.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "args.test.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/args.test.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 720,
-      "label": "packages/gatherer-http/lib/queue-write.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/queue-write.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/queue-write.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "queue-write.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/queue-write.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 80,
-      "y": 720,
-      "label": "packages/gatherer-http/lib/env.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/env.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/env.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "env.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/env.ts",
+      "category": "typescript",
+      "group": "lib",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 453.9735195062284,
-      "y": 720,
-      "label": "packages/gatherer-http/index.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/index.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/index.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "index.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/index.ts",
+      "category": "typescript",
+      "group": "gatherer-http",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 405.81520145292,
-      "y": 487.71305888584595,
-      "label": "packages/configurator/app/entry.server.tsx",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/entry.server.tsx",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/entry.server.tsx",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "entry.server.tsx",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/entry.server.tsx",
+      "category": "typescript",
+      "group": "app",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 878.9710017674018,
-      "y": 379.79029267190407,
-      "label": "packages/configurator/app/utils/schema.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/schema.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/schema.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "schema.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/schema.ts",
+      "category": "typescript",
+      "group": "utils",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 917.717631824628,
-      "y": 357.3272647676238,
-      "label": "packages/configurator/app/utils/date.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/date.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/date.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "date.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/date.ts",
+      "category": "typescript",
+      "group": "utils",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 878.3312725914049,
-      "y": 334.1069921619512,
-      "label": "packages/configurator/app/utils/db.server.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/db.server.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/db.server.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "db.server.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/db.server.ts",
+      "category": "typescript",
+      "group": "utils",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 720,
-      "label": "packages/configurator/app/root.test.tsx",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/root.test.tsx",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/root.test.tsx",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "root.test.tsx",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/root.test.tsx",
+      "category": "typescript",
+      "group": "app",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 720,
-      "label": "packages/configurator/app/root.tsx",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/root.tsx",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/root.tsx",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "root.tsx",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/root.tsx",
+      "category": "typescript",
+      "group": "app",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 901.8491381085612,
-      "y": 186.2233600470947,
-      "label": "packages/configurator/app/entry.client.tsx",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/entry.client.tsx",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/entry.client.tsx",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "entry.client.tsx",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/entry.client.tsx",
+      "category": "typescript",
+      "group": "app",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 80,
-      "y": 80,
-      "label": "packages/configurator/app/routes/health.tsx",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/health.tsx",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/health.tsx",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "health.tsx",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/health.tsx",
+      "category": "typescript",
+      "group": "routes",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 786.3001220345462,
-      "y": 157.03743838079978,
-      "label": "packages/configurator/app/routes/tenant.$tenantId.tsx",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.$tenantId.tsx",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.$tenantId.tsx",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "tenant.$tenantId.tsx",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.$tenantId.tsx",
+      "category": "typescript",
+      "group": "routes",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 797.9895035169351,
-      "y": 112.19157839788609,
-      "label": "packages/configurator/app/routes/tenant.$tenantId.test.tsx",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.$tenantId.test.tsx",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.$tenantId.test.tsx",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "tenant.$tenantId....",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.$tenantId.test.tsx",
+      "category": "typescript",
+      "group": "routes",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 499.7857200815254,
-      "y": 645.1437201366105,
-      "label": "packages/configurator/app/routes/tenant.index.tsx",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.index.tsx",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.index.tsx",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "tenant.index.tsx",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.index.tsx",
+      "category": "typescript",
+      "group": "routes",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 80,
-      "label": "packages/configurator/app/routes/_index.tsx",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/_index.tsx",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/_index.tsx",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "_index.tsx",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/_index.tsx",
+      "category": "typescript",
+      "group": "routes",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 80,
-      "label": "packages/configurator/eslint.config.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/eslint.config.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/eslint.config.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "eslint.config.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/eslint.config.ts",
+      "category": "typescript",
+      "group": "configurator",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 80,
-      "y": 720,
-      "label": "packages/configurator/remix.env.d.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/remix.env.d.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/remix.env.d.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "remix.env.d.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/remix.env.d.ts",
+      "category": "typescript",
+      "group": "configurator",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 720,
-      "label": "packages/configurator/vite.config.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/vite.config.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/vite.config.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "vite.config.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/vite.config.ts",
+      "category": "typescript",
+      "group": "configurator",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 303.3074977050298,
-      "y": 428.8103612230561,
-      "label": "packages/configurator/vitest.config.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/vitest.config.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/vitest.config.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "vitest.config.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/vitest.config.ts",
+      "category": "typescript",
+      "group": "configurator",
+      "color": "#3b82f6",
+      "size": 14
     },
     {
-      "x": 1120,
-      "y": 80,
-      "label": "packages/configurator/vitest.setup.ts",
-      "path": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/vitest.setup.ts",
       "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/vitest.setup.ts",
-      "color": "rgba(59, 130, 246, 0.8)",
-      "borderColor": "rgb(59, 130, 246)"
+      "name": "vitest.setup.ts",
+      "fullPath": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/vitest.setup.ts",
+      "category": "typescript",
+      "group": "configurator",
+      "color": "#3b82f6",
+      "size": 14
     }
   ],
-  "edges": [
+  "links": [
     {
-      "source": {
-        "x": 585.3644157915135,
-        "y": 469.40825914148036
-      },
-      "target": {
-        "x": 605.4253395669582,
-        "y": 413.5173838759874
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/listener-mock.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/listener-mock.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.ts"
     },
     {
-      "source": {
-        "x": 773.2848235319804,
-        "y": 411.93866624497934
-      },
-      "target": {
-        "x": 726.0316424227068,
-        "y": 423.1693478474792
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/transform.test.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/transform.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/transform.test.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/transform.ts"
     },
     {
-      "source": {
-        "x": 669.0907091257951,
-        "y": 427.0028168485277
-      },
-      "target": {
-        "x": 605.4253395669582,
-        "y": 413.5173838759874
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/listener-read.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/listener-read.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.ts"
     },
     {
-      "source": {
-        "x": 669.0907091257951,
-        "y": 427.0028168485277
-      },
-      "target": {
-        "x": 726.0316424227068,
-        "y": 423.1693478474792
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/listener-read.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/transform.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/listener-read.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/transform.ts"
     },
     {
-      "source": {
-        "x": 545.7681866489505,
-        "y": 412.56379418125266
-      },
-      "target": {
-        "x": 605.4253395669582,
-        "y": 413.5173838759874
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.test.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.test.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.ts"
     },
     {
-      "source": {
-        "x": 622.1362918430295,
-        "y": 350.14456719681846
-      },
-      "target": {
-        "x": 605.4253395669582,
-        "y": 413.5173838759874
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/queue-write.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/queue-write.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.ts"
     },
     {
-      "source": {
-        "x": 622.1362918430295,
-        "y": 350.14456719681846
-      },
-      "target": {
-        "x": 647.2612640178962,
-        "y": 301.6161583432618
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/queue-write.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/env.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/queue-write.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/env.ts"
     },
     {
-      "source": {
-        "x": 644.689720489645,
-        "y": 388.8162117196791
-      },
-      "target": {
-        "x": 605.4253395669582,
-        "y": 413.5173838759874
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/index.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/args.ts"
     },
     {
-      "source": {
-        "x": 644.689720489645,
-        "y": 388.8162117196791
-      },
-      "target": {
-        "x": 669.0907091257951,
-        "y": 427.0028168485277
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/listener-read.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/index.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/listener-read.ts"
     },
     {
-      "source": {
-        "x": 644.689720489645,
-        "y": 388.8162117196791
-      },
-      "target": {
-        "x": 622.1362918430295,
-        "y": 350.14456719681846
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/queue-write.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/index.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-stdin/lib/queue-write.ts"
     },
     {
-      "source": {
-        "x": 80,
-        "y": 80
-      },
-      "target": {
-        "x": 80,
-        "y": 404.6186281333937
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/env.test.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/env.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/env.test.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/env.ts"
     },
     {
-      "source": {
-        "x": 136.5818668277333,
-        "y": 579.7077013739832
-      },
-      "target": {
-        "x": 80,
-        "y": 404.6186281333937
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/env.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/env.ts"
     },
     {
-      "source": {
-        "x": 80,
-        "y": 720
-      },
-      "target": {
-        "x": 136.5818668277333,
-        "y": 579.7077013739832
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.test.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.test.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.ts"
     },
     {
-      "source": {
-        "x": 80,
-        "y": 720
-      },
-      "target": {
-        "x": 80,
-        "y": 404.6186281333937
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.test.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/env.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.test.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/env.ts"
     },
     {
-      "source": {
-        "x": 285.367487971,
-        "y": 616.221814429224
-      },
-      "target": {
-        "x": 136.5818668277333,
-        "y": 579.7077013739832
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/index.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-archive-client/lib/client.ts"
     },
     {
-      "source": {
-        "x": 857.4490426002906,
-        "y": 625.7063930116274
-      },
-      "target": {
-        "x": 830.2457510317024,
-        "y": 660.144717789297
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/ruuvi.test.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/ruuvi.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/ruuvi.test.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/ruuvi.ts"
     },
     {
-      "source": {
-        "x": 775.1537518365354,
-        "y": 662.1103674811312
-      },
-      "target": {
-        "x": 830.2457510317024,
-        "y": 660.144717789297
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/ruuvi.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/index.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/ruuvi.ts"
     },
     {
-      "source": {
-        "x": 693.5313242321788,
-        "y": 647.6339545419385
-      },
-      "target": {
-        "x": 775.1537518365354,
-        "y": 662.1103674811312
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/index.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/index.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/formats/index.ts"
     },
     {
-      "source": {
-        "x": 693.5313242321788,
-        "y": 647.6339545419385
-      },
-      "target": {
-        "x": 630.9310026831273,
-        "y": 645.1463140866446
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/schemas.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/index.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-data/lib/schemas.ts"
     },
     {
-      "source": {
-        "x": 593.838697069018,
-        "y": 214.2237390653377
-      },
-      "target": {
-        "x": 603.0949985161245,
-        "y": 169.52021672330955
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/env.test.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/env.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/env.test.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/env.ts"
     },
     {
-      "source": {
-        "x": 625.185486678612,
-        "y": 80
-      },
-      "target": {
-        "x": 577.9433816213635,
-        "y": 80
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/router.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/context.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/router.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/context.ts"
     },
     {
-      "source": {
-        "x": 602.987139255069,
-        "y": 119.13519707776125
-      },
-      "target": {
-        "x": 577.9433816213635,
-        "y": 80
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/context.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/index.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/context.ts"
     },
     {
-      "source": {
-        "x": 602.987139255069,
-        "y": 119.13519707776125
-      },
-      "target": {
-        "x": 603.0949985161245,
-        "y": 169.52021672330955
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/env.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/index.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/env.ts"
     },
     {
-      "source": {
-        "x": 602.987139255069,
-        "y": 119.13519707776125
-      },
-      "target": {
-        "x": 625.185486678612,
-        "y": 80
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/router.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/index.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/archive/lib/router.ts"
     },
     {
-      "source": {
-        "x": 1120,
-        "y": 80
-      },
-      "target": {
-        "x": 1120,
-        "y": 720
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/queue-read.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/args.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/queue-read.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/args.ts"
     },
     {
-      "source": {
-        "x": 1120,
-        "y": 80
-      },
-      "target": {
-        "x": 1120,
-        "y": 80
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/queue-read.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/env.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/queue-read.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/env.ts"
     },
     {
-      "source": {
-        "x": 1120,
-        "y": 720
-      },
-      "target": {
-        "x": 1120,
-        "y": 720
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/args.test.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/args.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/args.test.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/args.ts"
     },
     {
-      "source": {
-        "x": 1120,
-        "y": 80
-      },
-      "target": {
-        "x": 1120,
-        "y": 80
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/archive-write.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/env.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/archive-write.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/env.ts"
     },
     {
-      "source": {
-        "x": 80,
-        "y": 80
-      },
-      "target": {
-        "x": 1120,
-        "y": 80
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/queue-read.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/index.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/queue-read.ts"
     },
     {
-      "source": {
-        "x": 80,
-        "y": 80
-      },
-      "target": {
-        "x": 1120,
-        "y": 80
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/archive-write.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/index.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/publisher/lib/archive-write.ts"
     },
     {
-      "source": {
-        "x": 320.88056926490975,
-        "y": 614.5026349094752
-      },
-      "target": {
-        "x": 283.7830220076338,
-        "y": 585.8620008524068
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/010-drop-materialized-views.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/006-downsample-measurement.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/010-drop-materialized-views.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/006-downsample-measurement.ts"
     },
     {
-      "source": {
-        "x": 320.88056926490975,
-        "y": 614.5026349094752
-      },
-      "target": {
-        "x": 361.6946249936358,
-        "y": 641.154860524701
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/010-drop-materialized-views.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/007-refresh-materialized-views.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/010-drop-materialized-views.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/migrations/007-refresh-materialized-views.ts"
     },
     {
-      "source": {
-        "x": 430.076708934066,
-        "y": 200.2580604905701
-      },
-      "target": {
-        "x": 441.56280751652196,
-        "y": 234.32188367348903
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/manual-migrate.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/migrate.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/manual-migrate.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/migrate.ts"
     },
     {
-      "source": {
-        "x": 430.076708934066,
-        "y": 200.2580604905701
-      },
-      "target": {
-        "x": 398.9076993314393,
-        "y": 252.33004258020054
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/manual-migrate.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/manual-migrate.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.ts"
     },
     {
-      "source": {
-        "x": 441.56280751652196,
-        "y": 234.32188367348903
-      },
-      "target": {
-        "x": 398.9076993314393,
-        "y": 252.33004258020054
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/migrate.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/migrate.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.ts"
     },
     {
-      "source": {
-        "x": 311.7123560093867,
-        "y": 174.50875988577357
-      },
-      "target": {
-        "x": 349.3759635229432,
-        "y": 216.61352041355153
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/env.test.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/env.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/env.test.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/env.ts"
     },
     {
-      "source": {
-        "x": 398.9076993314393,
-        "y": 252.33004258020054
-      },
-      "target": {
-        "x": 349.3759635229432,
-        "y": 216.61352041355153
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/env.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/env.ts"
     },
     {
-      "source": {
-        "x": 398.9076993314393,
-        "y": 252.33004258020054
-      },
-      "target": {
-        "x": 450.94454293030134,
-        "y": 283.8920866435441
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/database.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/database.ts"
     },
     {
-      "source": {
-        "x": 348.7851386952607,
-        "y": 270.1201528981285
-      },
-      "target": {
-        "x": 398.9076993314393,
-        "y": 252.33004258020054
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.test.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.test.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.ts"
     },
     {
-      "source": {
-        "x": 348.7851386952607,
-        "y": 270.1201528981285
-      },
-      "target": {
-        "x": 349.3759635229432,
-        "y": 216.61352041355153
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.test.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/env.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.test.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/env.ts"
     },
     {
-      "source": {
-        "x": 416.57981713824813,
-        "y": 299.3397102466137
-      },
-      "target": {
-        "x": 398.9076993314393,
-        "y": 252.33004258020054
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/index.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/client.ts"
     },
     {
-      "source": {
-        "x": 416.57981713824813,
-        "y": 299.3397102466137
-      },
-      "target": {
-        "x": 441.56280751652196,
-        "y": 234.32188367348903
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/migrate.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/index.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/migrate.ts"
     },
     {
-      "source": {
-        "x": 416.57981713824813,
-        "y": 299.3397102466137
-      },
-      "target": {
-        "x": 450.94454293030134,
-        "y": 283.8920866435441
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/database.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/index.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/common-postgres/lib/database.ts"
     },
     {
-      "source": {
-        "x": 1120,
-        "y": 720
-      },
-      "target": {
-        "x": 719.3767528232563,
-        "y": 720
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/args.test.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/args.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/args.test.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/args.ts"
     },
     {
-      "source": {
-        "x": 1120,
-        "y": 720
-      },
-      "target": {
-        "x": 719.3767528232563,
-        "y": 720
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/queue-write.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/args.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/queue-write.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/args.ts"
     },
     {
-      "source": {
-        "x": 1120,
-        "y": 720
-      },
-      "target": {
-        "x": 80,
-        "y": 720
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/queue-write.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/env.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/queue-write.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/env.ts"
     },
     {
-      "source": {
-        "x": 453.9735195062284,
-        "y": 720
-      },
-      "target": {
-        "x": 719.3767528232563,
-        "y": 720
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/args.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/index.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/args.ts"
     },
     {
-      "source": {
-        "x": 453.9735195062284,
-        "y": 720
-      },
-      "target": {
-        "x": 786.2199642007265,
-        "y": 720
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/transform.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/index.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/transform.ts"
     },
     {
-      "source": {
-        "x": 453.9735195062284,
-        "y": 720
-      },
-      "target": {
-        "x": 1120,
-        "y": 720
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/index.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/queue-write.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/index.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/gatherer-http/lib/queue-write.ts"
     },
     {
-      "source": {
-        "x": 878.9710017674018,
-        "y": 379.79029267190407
-      },
-      "target": {
-        "x": 917.717631824628,
-        "y": 357.3272647676238
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/schema.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/date.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/schema.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/date.ts"
     },
     {
-      "source": {
-        "x": 878.3312725914049,
-        "y": 334.1069921619512
-      },
-      "target": {
-        "x": 917.717631824628,
-        "y": 357.3272647676238
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/db.server.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/date.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/db.server.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/date.ts"
     },
     {
-      "source": {
-        "x": 878.3312725914049,
-        "y": 334.1069921619512
-      },
-      "target": {
-        "x": 878.9710017674018,
-        "y": 379.79029267190407
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/db.server.ts",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/schema.ts",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/db.server.ts->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/utils/schema.ts"
     },
     {
-      "source": {
-        "x": 1120,
-        "y": 720
-      },
-      "target": {
-        "x": 1120,
-        "y": 720
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/root.test.tsx",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/root.tsx",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/root.test.tsx->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/root.tsx"
     },
     {
-      "source": {
-        "x": 797.9895035169351,
-        "y": 112.19157839788609
-      },
-      "target": {
-        "x": 786.3001220345462,
-        "y": 157.03743838079978
-      }
+      "source": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.$tenantId.test.tsx",
+      "target": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.$tenantId.tsx",
+      "id": "/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.$tenantId.test.tsx->/Users/unkhz/Work/unkhz/ruuvipuserrin/packages/configurator/app/routes/tenant.$tenantId.tsx"
     }
   ]
 }

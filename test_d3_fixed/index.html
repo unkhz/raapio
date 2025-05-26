@@ -329,14 +329,6 @@
 
             g = svg.append("g");
 
-            // Hide info panel when clicking outside nodes
-            svg.on("click", () => {
-                if (nodeElements) nodeElements.classed("selected", false);
-                if (linkElements) linkElements.classed("highlighted", false);
-                selectedNode = null;
-                document.getElementById('infoPanel').style.display = 'none';
-            });
-
             // Handle window resize
             window.addEventListener('resize', () => {
                 const newWidth = window.innerWidth;
@@ -616,6 +608,14 @@
                 createHierarchicalLayout();
             }
         }
+
+        // Hide info panel when clicking outside
+        svg.on("click", () => {
+            nodeElements.classed("selected", false);
+            linkElements.classed("highlighted", false);
+            selectedNode = null;
+            document.getElementById('infoPanel').style.display = 'none';
+        });
 
         // Initialize and load data
         initVisualization();
