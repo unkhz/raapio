@@ -1,53 +1,4 @@
-import { BaseVisualizationPlugin, VisualizationData } from '../base';
-import { writeFile, copyFile, mkdir } from 'node:fs/promises';
-import { join, dirname } from 'node:path';
-import { existsSync } from 'node:fs';
-
-export class HtmlVisualizationPlugin extends BaseVisualizationPlugin {
-  name = 'html';
-
-  async generate(data: VisualizationData, outputPath: string): Promise<void> {
-    await mkdir(outputPath, { recursive: true });
-
-    const htmlContent = this.generateHtml();
-    const jsContent = this.generateJavaScript();
-    const cssContent = this.generateCSS();
-
-    await Promise.all([
-      writeFile(join(outputPath, 'index.html'), htmlContent),
-      writeFile(join(outputPath, 'main.js'), jsContent),
-      writeFile(join(outputPath, 'styles.css'), cssContent),
-      writeFile(join(outputPath, 'visualization_data.json'), JSON.stringify(data, null, 2))
-    ]);
-  }
-
-  private generateHtml(): string {
-    return `<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Raapio - Module Graph</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <div class="header">
-        <h1>Module Dependency Graph</h1>
-        <button id="dark-mode-toggle" class="dark-mode-btn">🌙 Dark Mode</button>
-    </div>
-    <div id="graph-container">
-        <svg id="graph-svg" width="100%" height="800px" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid meet"></svg>
-    </div>
-    <div class="controls">
-        <p>Hover over nodes to see details. Click a node to view full path.</p>
-    </div>
-    <script src="main.js"></script>
-</body>
-</html>`;
-  }
-
-  private generateJavaScript(): string {
-    return `// web/main.js
+// web/main.js
 document.addEventListener('DOMContentLoaded', () => {
     // Dark mode functionality
     const darkModeToggle = document.getElementById('dark-mode-toggle');
@@ -225,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         
         const adjustedHeight = Math.max(height, maxY - minY + 200);
-        svg.setAttribute('height', \`\${adjustedHeight}px\`);
+        svg.setAttribute('height', `${adjustedHeight}px`);
         
         // Group nodes by package for color coding
         const packageColors = {
@@ -256,12 +207,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const offsetY = dx * 30 / length;
                 
                 // Bezier curve path
-                const pathData = \`M \${sourcePos.x} \${sourcePos.y} 
-                                  Q \${midX + offsetX} \${midY + offsetY} 
-                                  \${targetPos.x} \${targetPos.y}\`;
+                const pathData = `M ${sourcePos.x} ${sourcePos.y} 
+                                  Q ${midX + offsetX} ${midY + offsetY} 
+                                  ${targetPos.x} ${targetPos.y}`;
                                   
                 path.setAttribute('d', pathData);
-                path.setAttribute('class', \`edge edge-\${edge.source} edge-\${edge.target}\`);
+                path.setAttribute('class', `edge edge-${edge.source} edge-${edge.target}`);
                 path.setAttribute('marker-end', 'url(#arrowhead)');
                 svg.appendChild(path);
             }
@@ -274,7 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const group = document.createElementNS(svgNS, 'g');
             group.setAttribute('class', 'node');
-            group.setAttribute('transform', \`translate(\${pos.x}, \${pos.y})\`);
+            group.setAttribute('transform', `translate(${pos.x}, ${pos.y})`);
             svg.appendChild(group);
             
             // Add tooltip for full path
@@ -316,7 +267,7 @@ document.addEventListener('DOMContentLoaded', () => {
             
             // Add mouse interaction for better usability
             group.addEventListener('mouseover', () => {
-                const allConnectedEdges = svg.querySelectorAll(\`edge-\${node.id}\`);
+                const allConnectedEdges = svg.querySelectorAll(`edge-${node.id}`);
                 allConnectedEdges.forEach(edge => {
                     edge.classList.add('edge-highlighted');
                 });
@@ -324,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             
             group.addEventListener('mouseout', () => {
-                const allConnectedEdges = svg.querySelectorAll(\`.edge-\${node.id}\`);
+                const allConnectedEdges = svg.querySelectorAll(`.edge-${node.id}`);
                 allConnectedEdges.forEach(edge => {
                     edge.classList.remove('edge-highlighted');
                 });
@@ -332,7 +283,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             
             group.addEventListener('click', () => {
-                alert(\`File: \${node.path}\`);
+                alert(`File: ${node.path}`);
             });
         });
         
@@ -364,204 +315,4 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     }
-});`;
-  }
-
-  private generateCSS(): string {
-    return `:root {
-    --bg-color: #f4f4f4;
-    --text-color: #333;
-    --card-bg: #fff;
-    --border-color: #ccc;
-    --header-bg: #333;
-    --header-text: #fff;
-    --node-bg: #ebf5fb;
-    --node-border: #3498db;
-    --edge-color: #95a5a6;
-    --controls-bg: #f8f9fa;
-    --controls-border: #e9ecef;
-    --controls-text: #6c757d;
-    --legend-bg: rgba(255, 255, 255, 0.9);
-    --shadow: rgba(0, 0, 0, 0.1);
-}
-
-[data-theme="dark"] {
-    --bg-color: #1a1a1a;
-    --text-color: #e0e0e0;
-    --card-bg: #2d2d2d;
-    --border-color: #404040;
-    --header-bg: #000;
-    --header-text: #fff;
-    --node-bg: #1e3a5f;
-    --node-border: #4a90e2;
-    --edge-color: #6c757d;
-    --controls-bg: #2d2d2d;
-    --controls-border: #404040;
-    --controls-text: #b0b0b0;
-    --legend-bg: rgba(45, 45, 45, 0.95);
-    --shadow: rgba(0, 0, 0, 0.3);
-}
-
-body {
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    margin: 0;
-    background-color: var(--bg-color);
-    color: var(--text-color);
-    transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1em;
-    background-color: var(--header-bg);
-    color: var(--header-text);
-    margin-top: 0;
-}
-
-.dark-mode-btn {
-    background: var(--card-bg);
-    border: 1px solid var(--border-color);
-    border-radius: 6px;
-    padding: 8px 16px;
-    cursor: pointer;
-    color: var(--text-color);
-    font-size: 14px;
-    transition: all 0.3s ease;
-}
-
-.dark-mode-btn:hover {
-    background: var(--controls-bg);
-    transform: translateY(-1px);
-}
-
-#graph-container {
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    padding: 1em;
-    overflow: auto;
-    height: calc(100vh - 120px);
-}
-
-#graph-svg {
-    border: 1px solid var(--border-color);
-    background-color: var(--card-bg);
-    min-height: 800px;
-    box-shadow: 0 2px 10px var(--shadow);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-/* Package styling */
-.package-label {
-    font-size: 18px;
-    font-weight: bold;
-    text-anchor: middle;
-    fill: #2c3e50;
-}
-
-/* Node styling */
-.node rect {
-    fill: var(--node-bg);
-    stroke: var(--node-border);
-    stroke-width: 2px;
-    rx: 8;
-    ry: 8;
-    cursor: pointer;
-    filter: drop-shadow(0px 3px 3px var(--shadow));
-    transition: fill 0.3s ease, stroke 0.3s ease;
-}
-
-.node text {
-    font-size: 12px;
-    text-anchor: middle;
-    dominant-baseline: middle;
-    fill: var(--text-color);
-    pointer-events: none;
-    font-weight: 500;
-    transition: fill 0.3s ease;
-}
-
-.edge {
-    stroke: var(--edge-color);
-    stroke-width: 1.5px;
-    marker-end: url(#arrowhead);
-    opacity: 0.7;
-    fill: none;
-    transition: stroke 0.3s ease, stroke-width 0.2s ease;
-}
-
-/* Style for the arrowhead marker */
-#arrowhead path {
-    fill: var(--edge-color);
-    transition: fill 0.3s ease;
-}
-
-/* Interactive effects */
-.node:hover rect {
-    opacity: 0.8;
-    stroke-width: 3px;
-    filter: drop-shadow(0px 5px 5px var(--shadow));
-    transition: all 0.2s ease;
-}
-
-.node:active rect {
-    opacity: 0.6;
-}
-
-/* Highlighted edges */
-.edge-highlighted {
-    stroke: var(--node-border);
-    stroke-width: 2.5px;
-    opacity: 1;
-}
-
-/* Legend styling */
-.legend-item {
-    cursor: pointer;
-}
-
-.legend-text {
-    font-size: 12px;
-    fill: var(--text-color);
-    font-family: sans-serif;
-    transition: fill 0.3s ease;
-}
-
-.node-highlighted {
-    stroke: var(--node-border);
-    stroke-width: 3px;
-}
-
-/* Controls section */
-.controls {
-    text-align: center;
-    padding: 1em;
-    background-color: var(--controls-bg);
-    border-top: 1px solid var(--controls-border);
-    transition: background-color 0.3s ease, border-color 0.3s ease;
-}
-
-.controls p {
-    margin: 0;
-    color: var(--controls-text);
-    transition: color 0.3s ease;
-}
-
-/* Responsive layout */
-@media (max-width: 768px) {
-    #graph-container {
-        padding: 0.5em;
-    }
-    
-    .package-label {
-        font-size: 16px;
-    }
-    
-    .node text {
-        font-size: 10px;
-    }
-}`;
-  }
-}
+});

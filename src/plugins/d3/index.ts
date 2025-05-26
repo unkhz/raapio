@@ -121,6 +121,56 @@ export class D3VisualizationPlugin extends BaseVisualizationPlugin {
     <title>Raapio - Module Dependency Graph (D3.js)</title>
     <script src="https://d3js.org/d3.v7.min.js"></script>
     <style>
+        :root {
+            --bg-color: #f8fafc;
+            --text-color: #1e293b;
+            --card-bg: white;
+            --border-color: #e2e8f0;
+            --header-bg: white;
+            --header-shadow: rgba(0, 0, 0, 0.1);
+            --controls-bg: rgba(255, 255, 255, 0.95);
+            --controls-border: #e2e8f0;
+            --btn-bg: #f1f5f9;
+            --btn-border: #cbd5e1;
+            --btn-hover: #e2e8f0;
+            --btn-active: #cbd5e1;
+            --btn-text: #475569;
+            --stats-color: #64748b;
+            --legend-bg: rgba(255, 255, 255, 0.95);
+            --info-bg: rgba(255, 255, 255, 0.95);
+            --info-title: #374151;
+            --info-text: #6b7280;
+            --shadow: rgba(0, 0, 0, 0.1);
+            --node-stroke: #94a3b8;
+            --node-text: #1e293b;
+            --link-stroke: #94a3b8;
+        }
+
+        [data-theme="dark"] {
+            --bg-color: #0f172a;
+            --text-color: #e2e8f0;
+            --card-bg: #1e293b;
+            --border-color: #334155;
+            --header-bg: #1e293b;
+            --header-shadow: rgba(0, 0, 0, 0.3);
+            --controls-bg: rgba(30, 41, 59, 0.95);
+            --controls-border: #334155;
+            --btn-bg: #334155;
+            --btn-border: #475569;
+            --btn-hover: #475569;
+            --btn-active: #64748b;
+            --btn-text: #e2e8f0;
+            --stats-color: #94a3b8;
+            --legend-bg: rgba(30, 41, 59, 0.95);
+            --info-bg: rgba(30, 41, 59, 0.95);
+            --info-title: #e2e8f0;
+            --info-text: #94a3b8;
+            --shadow: rgba(0, 0, 0, 0.3);
+            --node-stroke: #64748b;
+            --node-text: #e2e8f0;
+            --link-stroke: #64748b;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -129,18 +179,21 @@ export class D3VisualizationPlugin extends BaseVisualizationPlugin {
         
         body {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background-color: #f8fafc;
+            background-color: var(--bg-color);
             height: 100vh;
             overflow: hidden;
+            color: var(--text-color);
+            transition: background-color 0.3s ease, color 0.3s ease;
         }
         
         #header {
-            background: white;
-            border-bottom: 1px solid #e2e8f0;
+            background: var(--header-bg);
+            border-bottom: 1px solid var(--border-color);
             padding: 12px 20px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 1px 3px var(--header-shadow);
             z-index: 1000;
             position: relative;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
         
         .header-content {
@@ -152,7 +205,8 @@ export class D3VisualizationPlugin extends BaseVisualizationPlugin {
         .title {
             font-size: 18px;
             font-weight: 600;
-            color: #1e293b;
+            color: var(--text-color);
+            transition: color 0.3s ease;
         }
         
         .controls {
@@ -162,36 +216,49 @@ export class D3VisualizationPlugin extends BaseVisualizationPlugin {
         }
         
         .btn {
-            background: #f1f5f9;
-            border: 1px solid #cbd5e1;
+            background: var(--btn-bg);
+            border: 1px solid var(--btn-border);
             border-radius: 6px;
             padding: 6px 12px;
             font-size: 13px;
             cursor: pointer;
-            color: #475569;
-            transition: all 0.2s;
+            color: var(--btn-text);
+            transition: all 0.3s ease;
         }
         
         .btn:hover {
-            background: #e2e8f0;
-            border-color: #94a3b8;
+            background: var(--btn-hover);
         }
         
         .btn:active {
-            background: #cbd5e1;
+            background: var(--btn-active);
+        }
+
+        #dark-mode-toggle {
+            background: var(--btn-bg);
+            border: 1px solid var(--btn-border);
+            border-radius: 6px;
+            padding: 6px 12px;
+            font-size: 13px;
+            cursor: pointer;
+            color: var(--btn-text);
+            margin-left: 12px;
+            transition: all 0.3s ease;
         }
         
         .stats {
             font-size: 12px;
-            color: #64748b;
+            color: var(--stats-color);
             margin-left: 12px;
+            transition: color 0.3s ease;
         }
         
         #visualization {
             width: 100%;
             height: calc(100vh - 60px);
-            background-color: white;
+            background-color: var(--card-bg);
             cursor: grab;
+            transition: background-color 0.3s ease;
         }
         
         #visualization:active {
@@ -202,20 +269,22 @@ export class D3VisualizationPlugin extends BaseVisualizationPlugin {
             position: absolute;
             top: 80px;
             right: 20px;
-            background: rgba(255, 255, 255, 0.95);
-            border: 1px solid #e2e8f0;
+            background: var(--legend-bg);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             padding: 16px;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 4px 6px -1px var(--shadow);
             font-size: 12px;
             max-width: 200px;
             z-index: 100;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
         }
         
         .legend-title {
             font-weight: 600;
             margin-bottom: 8px;
-            color: #374151;
+            color: var(--info-title);
+            transition: color 0.3s ease;
         }
         
         .legend-item {
@@ -341,6 +410,7 @@ export class D3VisualizationPlugin extends BaseVisualizationPlugin {
                 <button class="btn" onclick="zoomOut()">Zoom Out</button>
                 <button class="btn" onclick="resetView()">Reset</button>
                 <button class="btn" onclick="toggleLayout()">Switch Layout</button>
+                <button id="dark-mode-toggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
                 <div class="stats">
                     <span id="nodeCount">0</span> nodes, <span id="linkCount">0</span> dependencies
                 </div>
@@ -409,6 +479,51 @@ export class D3VisualizationPlugin extends BaseVisualizationPlugin {
         let labelElements = null;
         let selectedNode = null;
         let currentLayout = 'force';
+        let isDarkMode = localStorage.getItem('darkMode') === 'true';
+
+        // Dark mode functionality
+        function toggleDarkMode() {
+            isDarkMode = !isDarkMode;
+            const toggle = document.getElementById('dark-mode-toggle');
+            
+            if (isDarkMode) {
+                document.body.setAttribute('data-theme', 'dark');
+                toggle.textContent = '☀️ Light Mode';
+                localStorage.setItem('darkMode', 'true');
+            } else {
+                document.body.removeAttribute('data-theme');
+                toggle.textContent = '🌙 Dark Mode';
+                localStorage.setItem('darkMode', 'false');
+            }
+            
+            // Update D3 elements with new theme
+            updateTheme();
+        }
+
+        function updateTheme() {
+            const rootStyle = getComputedStyle(document.documentElement);
+            const linkColor = rootStyle.getPropertyValue('--link-stroke').trim();
+            const nodeStroke = rootStyle.getPropertyValue('--node-stroke').trim();
+            const nodeText = rootStyle.getPropertyValue('--node-text').trim();
+            
+            // Update link colors
+            if (linkElements) {
+                linkElements.style('stroke', linkColor);
+            }
+            
+            // Update node stroke colors
+            if (nodeElements) {
+                nodeElements.style('stroke', nodeStroke);
+            }
+            
+            // Update text colors
+            if (labelElements) {
+                labelElements.style('fill', nodeText);
+            }
+            
+            // Update arrow marker
+            d3.select('#arrowhead path').attr('fill', linkColor);
+        }
 
         // Zoom behavior
         const zoom = d3.zoom()
@@ -730,6 +845,12 @@ export class D3VisualizationPlugin extends BaseVisualizationPlugin {
             } else {
                 createHierarchicalLayout();
             }
+        }
+
+        // Initialize dark mode
+        if (isDarkMode) {
+            document.body.setAttribute('data-theme', 'dark');
+            document.getElementById('dark-mode-toggle').textContent = '☀️ Light Mode';
         }
 
         // Initialize and load data

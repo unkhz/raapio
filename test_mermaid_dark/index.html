@@ -1,112 +1,4 @@
-import { BaseVisualizationPlugin, VisualizationData } from '../base';
-import { writeFile, mkdir } from 'node:fs/promises';
-import { join, relative, basename } from 'node:path';
-
-export class MermaidVisualizationPlugin extends BaseVisualizationPlugin {
-  name = 'mermaid';
-
-  async generate(data: VisualizationData, outputPath: string): Promise<void> {
-    await mkdir(outputPath, { recursive: true });
-
-    const mermaidContent = this.generateMermaidDiagram(data);
-    const htmlContent = this.generateHtmlWrapper(mermaidContent);
-
-    await Promise.all([
-      writeFile(join(outputPath, 'graph.mmd'), mermaidContent),
-      writeFile(join(outputPath, 'index.html'), htmlContent)
-    ]);
-  }
-
-  private generateMermaidDiagram(data: VisualizationData): string {
-    const lines: string[] = ['graph LR'];
-    
-    // Generate node definitions with labels
-    const nodeMap = new Map<string, string>();
-    data.nodes.forEach((node, index) => {
-      const nodeId = `N${index}`;
-      nodeMap.set(node.id, nodeId);
-      
-      // Create a clean label for the node
-      const label = this.sanitizeLabel(node.label);
-      lines.push(`    ${nodeId}["${label}"]`);
-    });
-
-    // Add empty line for readability
-    lines.push('');
-
-    // Generate edges
-    data.edges.forEach(edge => {
-      const sourceId = nodeMap.get(edge.source);
-      const targetId = nodeMap.get(edge.target);
-      
-      if (sourceId && targetId) {
-        lines.push(`    ${sourceId} --> ${targetId}`);
-      }
-    });
-
-    // Add styling for different node types
-    lines.push('');
-    lines.push('    %% Styling');
-    
-    // Style nodes based on their file types or paths
-    data.nodes.forEach((node, index) => {
-      const nodeId = `N${index}`;
-      const style = this.getNodeStyle(node.label, node.path);
-      if (style) {
-        lines.push(`    ${style.replace('{nodeId}', nodeId)}`);
-      }
-    });
-
-    return lines.join('\n');
-  }
-
-  private sanitizeLabel(label: string): string {
-    // Remove or replace characters that might break Mermaid syntax
-    return label
-      .replace(/"/g, "'")
-      .replace(/\[/g, '(')
-      .replace(/\]/g, ')')
-      .replace(/\n/g, ' ')
-      .trim();
-  }
-
-  private getNodeStyle(label: string, path: string): string | null {
-    const fileName = basename(path);
-    const ext = fileName.split('.').pop()?.toLowerCase();
-    
-    // Style based on file extension
-    switch (ext) {
-      case 'ts':
-      case 'tsx':
-        return 'classDef {nodeId} fill:#e1f5fe,stroke:#01579b,stroke-width:2px';
-      case 'js':
-      case 'jsx':
-        return 'classDef {nodeId} fill:#fff3e0,stroke:#e65100,stroke-width:2px';
-      case 'css':
-      case 'scss':
-      case 'sass':
-        return 'classDef {nodeId} fill:#f3e5f5,stroke:#4a148c,stroke-width:2px';
-      case 'html':
-        return 'classDef {nodeId} fill:#e8f5e8,stroke:#1b5e20,stroke-width:2px';
-      case 'json':
-        return 'classDef {nodeId} fill:#fff8e1,stroke:#ff6f00,stroke-width:2px';
-      case 'md':
-        return 'classDef {nodeId} fill:#fafafa,stroke:#424242,stroke-width:2px';
-      default:
-        // Check if it's a directory or external module
-        if (label.includes('/') && !fileName.includes('.')) {
-          return 'classDef {nodeId} fill:#f1f8e9,stroke:#33691e,stroke-width:2px';
-        }
-        // External modules (no file extension)
-        if (!fileName.includes('.')) {
-          return 'classDef {nodeId} fill:#ffebee,stroke:#c62828,stroke-width:2px';
-        }
-        return null;
-    }
-  }
-
-  private generateHtmlWrapper(mermaidContent: string): string {
-    return `<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -257,7 +149,37 @@ export class MermaidVisualizationPlugin extends BaseVisualizationPlugin {
     
     <div class="container">
         <div class="mermaid">
-${mermaidContent}
+graph LR
+    N0["visualizer.ts"]
+    N1["serializer.ts"]
+    N2["plugins/base.ts"]
+    N3["plugins/html/index.ts"]
+    N4["plugins/mermaid/index.ts"]
+    N5["plugins/index.ts"]
+    N6["cli.ts"]
+    N7["analyzer.ts"]
+
+    N0 --> N1
+    N0 --> N2
+    N3 --> N2
+    N4 --> N2
+    N5 --> N2
+    N5 --> N3
+    N5 --> N4
+    N6 --> N7
+    N6 --> N1
+    N6 --> N0
+    N6 --> N5
+
+    %% Styling
+    classDef N0 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N1 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N2 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N3 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N4 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N5 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N6 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
+    classDef N7 fill:#e1f5fe,stroke:#01579b,stroke-width:2px
         </div>
     </div>
     
@@ -341,6 +263,4 @@ ${mermaidContent}
         });
     </script>
 </body>
-</html>`;
-  }
-}
+</html>

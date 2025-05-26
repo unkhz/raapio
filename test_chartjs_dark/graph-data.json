@@ -1,0 +1,188 @@
+{
+  "nodes": [
+    {
+      "x": 612.0648620220541,
+      "y": 349.73621572149807,
+      "label": "visualizer.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/visualizer.ts",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "borderColor": "rgb(59, 130, 246)"
+    },
+    {
+      "x": 570.5309996750581,
+      "y": 323.0800254500209,
+      "label": "serializer.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/serializer.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/serializer.ts",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "borderColor": "rgb(59, 130, 246)"
+    },
+    {
+      "x": 652.9187531143984,
+      "y": 397.767612725639,
+      "label": "plugins/base.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/base.ts",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "borderColor": "rgb(59, 130, 246)"
+    },
+    {
+      "x": 645.012477598771,
+      "y": 461.55014108369744,
+      "label": "plugins/html/index.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/plugins/html/index.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/html/index.ts",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "borderColor": "rgb(59, 130, 246)"
+    },
+    {
+      "x": 689.5401282584094,
+      "y": 420.32883858383695,
+      "label": "plugins/mermaid/index.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/plugins/mermaid/index.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/mermaid/index.ts",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "borderColor": "rgb(59, 130, 246)"
+    },
+    {
+      "x": 621.8801542241338,
+      "y": 423.4086115861665,
+      "label": "plugins/index.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/plugins/index.ts",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "borderColor": "rgb(59, 130, 246)"
+    },
+    {
+      "x": 567.5934887919218,
+      "y": 377.7016939678222,
+      "label": "cli.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/cli.ts",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "borderColor": "rgb(59, 130, 246)"
+    },
+    {
+      "x": 509.0454152146971,
+      "y": 391.1333222585316,
+      "label": "analyzer.ts",
+      "path": "/Users/unkhz/Work/unkhz/raapio/src/analyzer.ts",
+      "id": "/Users/unkhz/Work/unkhz/raapio/src/analyzer.ts",
+      "color": "rgba(59, 130, 246, 0.8)",
+      "borderColor": "rgb(59, 130, 246)"
+    }
+  ],
+  "edges": [
+    {
+      "source": {
+        "x": 612.0648620220541,
+        "y": 349.73621572149807
+      },
+      "target": {
+        "x": 570.5309996750581,
+        "y": 323.0800254500209
+      }
+    },
+    {
+      "source": {
+        "x": 612.0648620220541,
+        "y": 349.73621572149807
+      },
+      "target": {
+        "x": 652.9187531143984,
+        "y": 397.767612725639
+      }
+    },
+    {
+      "source": {
+        "x": 645.012477598771,
+        "y": 461.55014108369744
+      },
+      "target": {
+        "x": 652.9187531143984,
+        "y": 397.767612725639
+      }
+    },
+    {
+      "source": {
+        "x": 689.5401282584094,
+        "y": 420.32883858383695
+      },
+      "target": {
+        "x": 652.9187531143984,
+        "y": 397.767612725639
+      }
+    },
+    {
+      "source": {
+        "x": 621.8801542241338,
+        "y": 423.4086115861665
+      },
+      "target": {
+        "x": 652.9187531143984,
+        "y": 397.767612725639
+      }
+    },
+    {
+      "source": {
+        "x": 621.8801542241338,
+        "y": 423.4086115861665
+      },
+      "target": {
+        "x": 645.012477598771,
+        "y": 461.55014108369744
+      }
+    },
+    {
+      "source": {
+        "x": 621.8801542241338,
+        "y": 423.4086115861665
+      },
+      "target": {
+        "x": 689.5401282584094,
+        "y": 420.32883858383695
+      }
+    },
+    {
+      "source": {
+        "x": 567.5934887919218,
+        "y": 377.7016939678222
+      },
+      "target": {
+        "x": 509.0454152146971,
+        "y": 391.1333222585316
+      }
+    },
+    {
+      "source": {
+        "x": 567.5934887919218,
+        "y": 377.7016939678222
+      },
+      "target": {
+        "x": 570.5309996750581,
+        "y": 323.0800254500209
+      }
+    },
+    {
+      "source": {
+        "x": 567.5934887919218,
+        "y": 377.7016939678222
+      },
+      "target": {
+        "x": 612.0648620220541,
+        "y": 349.73621572149807
+      }
+    },
+    {
+      "source": {
+        "x": 567.5934887919218,
+        "y": 377.7016939678222
+      },
+      "target": {
+        "x": 621.8801542241338,
+        "y": 423.4086115861665
+      }
+    }
+  ]
+}
